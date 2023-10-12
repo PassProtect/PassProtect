@@ -1,12 +1,10 @@
 <script lang='ts'>
-  import '../app.css';
-
+  import '../../app.css';
 </script>
 
-<!-- <nav>
-	<a href="/">Home</a>
-  <a href="/todos">TODOS</a>
-</nav> -->
+<nav>
+	<a href="/">Log Out</a>
+</nav>
 <main>
 	<slot />
 </main>
