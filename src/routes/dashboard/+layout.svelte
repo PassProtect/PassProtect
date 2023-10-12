@@ -4,6 +4,7 @@
 
 <nav>
 	<a href="/">Log Out</a>
+  <a href="/dashboard">Dashboard</a>
 </nav>
 <main>
 	<slot />
