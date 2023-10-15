@@ -1,22 +1,23 @@
-export const load = ({ params }) => {
+import type { PageLoad } from '../$types.js';
 
-  const sum = (a:number,b:number) => {
-    return a + b;
-  }
+export const load: PageLoad = async ({ params, parent, accountURL }) => {
 
-  const result = sum(2,2);
 
+  const parentData = await parent();
+  console.log("PARENT: ", parentData);
   //get app from making a db call to params.slug
   const app = {
-    url : `${params.slug}.com`,
+    url : `${params}.com`,
     username : 'geoff',
     password : '123'
   }
 
 
+  
   return {
-    slug : params.slug,
-    result,
-    app
+    slug : params,
+    // result,
+    app,
+    accountURL
   }
 }
