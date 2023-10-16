@@ -1,11 +1,13 @@
 <script>
+  import { getContext } from 'svelte';
+
+  const accounts = getContext('accounts');
   export let data;
-  console.log("URL", data.accountURL);
-  export let accountURL;
+
+  console.log('ACCOUNTS', accounts)
 </script>
 
 
 <h1>{data.slug}</h1>
-<h2>{accountURL}</h2>
 <h2>{data.app.username}</h2>
 <h2>{data.app.password}</h2>

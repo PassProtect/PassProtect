@@ -1,21 +1,9 @@
-// import axios from 'axios';
-// import type { PageLoad } from './$types.js';
+interface FetchOptions {
+    fetch: (string: string) => Promise<Response>;
+}
 
-
-// export const load: PageLoad = async ({ fetch }) => {
-//     try {
-//         const response = await fetch('/api/dashboard');
-//         // const item = await response.json();
-//         console.log('THIS IS THE RESPONSE', response.body);
-//         return {
-//           response
-//         }
-//     } catch (e) {
-//       console.log(e)
-//     }
-// }
-
-export const load = ({fetch}) => {
+export const load = ({fetch}: FetchOptions) => {
+    
     const fetchAccounts = async () => {
         const res = await fetch('/api/dashboard');
         const data = await res.json();
