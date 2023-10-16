@@ -13,28 +13,10 @@ export const actions = {
  
     const queryString = 'INSERT INTO accounts (companyName, url, username, password, user_id) VALUES ($1, $2, $3, $4, $5);';
     const queryValues = [companyName, url, username, password, user_id];
-    const response = await pool.query(queryString, queryValues);
-    console.log('RESPONSE', response)
-    return new Response('hello', {status:200})
-
-
-    // console.log('POST RECEIVED', companyName)
-
-    // const body = {
-    //   companyName,
-    //   url,
-    //   username,
-    //   password
-    // }
-    // const response = await fetch('/api/dashboard', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(body)
-    // })
-    // return response;
-
+    await pool.query(queryString, queryValues);
+    return {
+      status: 303,
+    }
   },
 } satisfies Actions;
 

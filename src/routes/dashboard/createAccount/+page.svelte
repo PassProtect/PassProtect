@@ -1,18 +1,14 @@
 <script lang="ts">
+  import { showAlert } from "../../../Store";
 
+  function handleSubmit() {
+    showAlert.set(true);
+  }
 </script>
 
 <h1>CREATE ACCOUNT</h1>
 
-<!-- <form method="post" action="/createAccount">
-  <input type="text" name="companyname" />
-  <input type="text" name="url" />
-  <input type="text" name="username" />
-  <input type="text" name="password" />
-  <button type="submit">Create Account</button>
-</form> -->
-
-<form method="POST" action="/dashboard/createAccount/">
+<form method="POST" action="/dashboard/createAccount/" on:submit={handleSubmit}>
 	<label>
 		Company Name
 		<input name="companyname" type="companyname">
@@ -31,3 +27,6 @@
 	</label>
 	<button>Create Account</button>
 </form>
+{#if $showAlert}
+<div class="alert">Account was successfully added!</div>
+{/if}

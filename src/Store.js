@@ -4,7 +4,9 @@ const accountStore = writable({
   companyname: '',
   url: '',
   username: '',
-  password: ''
+  password: '',
 });
+
+export const showAlert = writable(false);
 
 export default accountStore;
