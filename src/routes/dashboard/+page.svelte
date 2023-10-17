@@ -1,15 +1,31 @@
 <script>
 	import accountStore from '../../Store.js';
 	export let data;
-	
-	function updateStore(account) {
+
+	/**
+	 * @param {{ iv: any; password: any; companyname: any; url: any; username: any; }} account
+	 */
+	async function updateStore(account) {
+		//async wait for request and update password in store to plaintext
+		const info = {
+			iv: account.iv,
+			password: account.password
+		}
+		const data = await fetch('/api/dashboard', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(info)
+		});
+		const pass = await data.json();
 		accountStore.update(() => {
 			return {
 				companyname: account.companyname,
 				url: account.url,
 				username: account.username,
-				password: account.password,
-				iv: account.iv
+				password: pass.plaintext,
+				iv: '',
 			};
 		});
 	}

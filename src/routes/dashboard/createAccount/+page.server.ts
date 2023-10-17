@@ -1,4 +1,4 @@
-import type { Actions } from '../../$types';
+import type { Actions } from './$types';
 import { pool } from '../../db';
 import crypto from 'crypto';
 
@@ -16,19 +16,6 @@ function encrypt(text: string) {
 	return { iv: iv.toString('hex'), data: encrypted.toString('hex') };
 }
 
-function decrypt(iv:string, encrypt:string) {
-	const pass = process.env.VITE_KEY;
-	const algorithm = 'aes-256-cbc';
-	const key = crypto.scryptSync(pass, 'GfG', 32);
-	const ivBuffer = Buffer.from(iv, 'hex');
-	const encryptedText = Buffer.from(encrypt, 'hex');
-	const decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), ivBuffer);
-	let decrypted = decipher.update(encryptedText);
-	decrypted = Buffer.concat([decrypted, decipher.final()]);
-
-	return decrypted.toString();
-}
-
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
@@ -38,20 +25,7 @@ export const actions = {
 		const password = String(data.get('password'));
 		const user_id = 1;
 
-		// const hashedPass = await Bun.password.hash(password, {
-		// 	algorithm: "bcrypt",
-		// 	cost: 4
-		// });
-		// console.log(hashedPass);
-		// const isMatch = await Bun.password.verify(password, hashedPass);
-		// console.log('MATCHES', isMatch);
-
-		// const key = crypto.randomBytes(32);
-
 		const encryptedPass = encrypt(password);
-		console.log(encryptedPass);
-		const decryptedPass = decrypt(encryptedPass.iv, encryptedPass.data);
-		console.log(decryptedPass);
 
 		const queryString =
 			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6);';
