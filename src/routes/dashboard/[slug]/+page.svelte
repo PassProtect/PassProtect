@@ -1,13 +1,17 @@
 <script>
-  import { getContext } from 'svelte';
+  import accountStore from '../../../Store.js';
 
-  const accounts = getContext('accounts');
-  export let data;
-
-  console.log('ACCOUNTS', accounts)
+  $: companyname = $accountStore.companyname
+  $: url = $accountStore.url
+  $: username = $accountStore.username
+  $: password = $accountStore.password
 </script>
 
-
-<h1>{data.slug}</h1>
-<h2>{data.app.username}</h2>
-<h2>{data.app.password}</h2>
+<div class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+  <div class='border-2 border-blue-500 rounded-xl p-4'>
+    <h1 class='text-4xl my-4 text-center'>{companyname}</h1>
+    <h1 class='text-4xl my-4 text-center'>{url}</h1>
+    <h1 class='text-4xl my-4 text-center'>{username}</h1>
+    <h1 class='text-4xl my-4 text-center'>{password}</h1>
+  </div>
+</div>
