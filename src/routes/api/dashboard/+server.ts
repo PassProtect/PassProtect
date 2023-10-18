@@ -12,11 +12,12 @@ export const GET: RequestHandler = async () => {
       return new Response(JSON.stringify({rows}), {status:200});
 }
 
-export const POST: RequestHandler = async (event) => {
-      const body = await event.request.json();
+export const POST: RequestHandler = async ({request}) => {
+      const body = await request.json();
 
       function decrypt(iv: string, encrypted: string) {
 		const pass = process.env.VITE_KEY;
+            //add to .env
 		const algorithm = 'aes-256-cbc';
 		const key = crypto.scryptSync(pass, 'GfG', 32);
 		const ivBuffer = Buffer.from(iv, 'hex');
