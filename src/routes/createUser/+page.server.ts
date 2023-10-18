@@ -1,6 +1,6 @@
 import type { Actions } from './$types';
 import { pool } from '../db';
-import { redirect } from '@sveltejs/kit';
+import { redirect, fail } from '@sveltejs/kit';
 
 export const actions = {
 	default: async ({ request }) => {
@@ -32,7 +32,7 @@ export const actions = {
 				throw redirect(307, '/');
 
       } else {
-				return {failed: true}
+				return fail(400, {failed: true})
       }
 
 

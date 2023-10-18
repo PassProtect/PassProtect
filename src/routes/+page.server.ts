@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { pool } from './db';
 import Cookies from 'js-cookie';
@@ -19,13 +19,12 @@ export const actions = {
 			;`;
 			const queryValues = [username];
 			const response = await pool.query(queryString, queryValues);
+			if (!response.rowCount) return fail(400, {success:false})
 			const storedHashedPassword = response.rows[0].password;
 			const user_id = response.rows[0].user_id;
 
 			// verify inputted and saved password hashes match
 			const isMatch = await Bun.password.verify(password, storedHashedPassword);
-			console.log('Match status: ', isMatch);
-
 			// if passwords match, set a cookie for user_id and redirect to dashboard
 			if (isMatch) {
 				Cookies.set('userid', `${user_id}`, {
@@ -36,7 +35,8 @@ export const actions = {
 				// return {success : true}
 				throw redirect(307, '/dashboard')
 			} else {
-				return {success: false};
+				// return {success: false};
+				return fail(400, {success:false})
 			}
 		} 
 } satisfies Actions;

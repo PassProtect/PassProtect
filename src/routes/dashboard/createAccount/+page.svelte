@@ -1,23 +1,28 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { showAlert } from '../../../Store';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import type { ActionData } from './$types';
 
+	export let form: ActionData;
 	const { transition } = setupViewTransition();
 
-	function handleSubmit() {
-		showAlert.set(true);
-	}
 </script>
 
 <div class="">
 	<h1 class="text-4xl text-center py-8">Add New Account</h1>
+	{#if (form?.success)}
+	<h1 class="text-2xl text-center py-4 text-green-400">Account Created</h1>
+	{/if}
+	{#if  (form?.success === false)}
+	<h1 class="text-2xl text-center py-4 text-red-600">Account Creation FAILED</h1>
+	{/if}
 
 	<form
 		class="text-center text-lg"
 		method="POST"
 		action="/dashboard/createAccount/"
 		use:transition={'viewLink'}
-		on:submit={handleSubmit}
 	>
 		<label class="py-2">
 			<p>Company Name:</p>
@@ -25,6 +30,7 @@
 				name="companyname"
 				type="text"
 				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				required
 			/>
 		</label>
 		<label class="py-2">
@@ -33,6 +39,7 @@
 				name="url"
 				type="text"
 				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				required
 			/>
 		</label>
 		<label class="py-2">
@@ -41,6 +48,7 @@
 				name="username"
 				type="text"
 				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				required
 			/>
 		</label>
 		<label class="py-2">
@@ -49,6 +57,7 @@
 				name="password"
 				type="password"
 				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				required
 			/>
 		</label>
 		<button
@@ -59,6 +68,3 @@
 	</form>
 </div>
 
-{#if $showAlert}
-	<div class="alert">Account was successfully added!</div>
-{/if}

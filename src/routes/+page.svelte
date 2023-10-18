@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
+	import type { ActionData } from './$types';
 
-	export let form;
+	export let form: ActionData;
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
@@ -23,6 +24,7 @@
 				type="text"
 				placeholder="username"
 				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				required
 			/>
 		</label>
 		<label>
@@ -31,6 +33,7 @@
 				type="password"
 				placeholder="password"
 				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				required
 			/>
 		</label>
 		<button

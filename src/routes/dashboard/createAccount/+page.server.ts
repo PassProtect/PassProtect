@@ -1,4 +1,4 @@
-import type { Actions } from '@sveltejs/kit';
+import { fail, type Actions } from '@sveltejs/kit';
 import { pool } from '../../db';
 import crypto from 'crypto';
 
@@ -28,11 +28,20 @@ export const actions = {
 		const encryptedPass = encrypt(password);
 
 		const queryString =
-			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6);';
+			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6)ON CONFLICT (companyName) DO NOTHING';
 		const queryValues = [companyName, url, username, encryptedPass.data, encryptedPass.iv, user_id];
-		await pool.query(queryString, queryValues);
-		return {
-			status: 303
-		};
+		const response = await pool.query(queryString, queryValues);
+		console.log(response)
+		if (response.rowCount) {
+			return {
+				success:true
+			};
+		}
+		else {
+			return fail(400,{
+				success:false
+			})
+		}
+		
 	}
 } satisfies Actions;
