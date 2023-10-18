@@ -1,4 +1,4 @@
-import type { Actions } from './$types';
+import type { Actions } from '@sveltejs/kit';
 import { pool } from '../../db';
 import crypto from 'crypto';
 
