@@ -3,7 +3,7 @@
 	import { onNavigate } from '$app/navigation';
 
 
-onNavigate((navigation) => {
+onNavigate(async (navigation) => {
 	if (!document.startViewTransition) return;
 
 	return new Promise((resolve) => {

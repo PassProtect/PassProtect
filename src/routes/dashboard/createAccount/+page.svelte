@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { showAlert } from '../../../Store';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
+	const { transition } = setupViewTransition();
 
 	function handleSubmit() {
 		showAlert.set(true);
@@ -9,9 +12,15 @@
 <div class="">
 	<h1 class="text-4xl text-center py-8">Add New Account</h1>
 
-	<form class="text-center text-lg" method="POST" action="/dashboard/createAccount/" on:submit={handleSubmit}>
+	<form
+		class="text-center text-lg"
+		method="POST"
+		action="/dashboard/createAccount/"
+		use:transition={'viewLink'}
+		on:submit={handleSubmit}
+	>
 		<label class="py-2">
-			<p>Company Name: </p>
+			<p>Company Name:</p>
 			<input
 				name="companyname"
 				type="text"
@@ -19,7 +28,7 @@
 			/>
 		</label>
 		<label class="py-2">
-			<p>Website URL: </p>
+			<p>Website URL:</p>
 			<input
 				name="url"
 				type="text"
@@ -27,7 +36,7 @@
 			/>
 		</label>
 		<label class="py-2">
-			<p>Username: </p>
+			<p>Username:</p>
 			<input
 				name="username"
 				type="text"
@@ -35,7 +44,7 @@
 			/>
 		</label>
 		<label class="py-2">
-			<p>Password: </p>
+			<p>Password:</p>
 			<input
 				name="password"
 				type="password"
