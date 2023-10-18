@@ -1,13 +1,19 @@
 <script>
+	import { enhance } from "$app/forms";
+	export let form;
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
 	<h1 class="text-center font-mono text-4xl mb-4">Create User</h1>
 
+	{#if (form?.failed)}
+	<h1>Create User FAILED lol</h1>
+	{/if}
 	<form 
 		method="POST" 
 		action="/createUser" 
 		class="w-full text-gray-50 text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		use:enhance
 	>
 		<label>
 			<input
@@ -15,6 +21,7 @@
 				type="text"
 				placeholder="email"
 				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				required
 			/>
 		</label>
 		<label>
@@ -23,6 +30,7 @@
 				type="text"
 				placeholder="username"
 				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				required
 			/>
 		</label>
 		<label>
@@ -31,6 +39,7 @@
 				type="password"
 				placeholder="password"
 				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				required
 			/>
 		</label>
 		<button

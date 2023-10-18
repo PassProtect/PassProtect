@@ -1,11 +1,10 @@
-import { goto } from '$app/navigation';
 import { redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { pool } from './db';
 import Cookies from 'js-cookie';
 
 export const actions = {
-	default: async ({ request }) => {
+	login: async ({ request }) => {
 
 			// get form data
 			const data = await request.formData();
@@ -34,9 +33,10 @@ export const actions = {
 					// httpOnly: true,
 					expires: 1 // 24 hours..?
 				});
-				// throw redirect(307, '/dashboard')
+				// return {success : true}
+				throw redirect(307, '/dashboard')
 			} else {
-				console.error('Could not login - an error occurred.');
+				return {success: false};
 			}
 		} 
 } satisfies Actions;

@@ -1,13 +1,21 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
+
+	export let form;
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
 	<h1 class="text-center font-mono text-4xl mb-4">PassProtect</h1>
 
+	{#if form?.success === false}
+	<h1>Login FAILED GG</h1>
+  {/if}
 	<form
 		method="POST"
-		action="/"
+		action="/?/login"
 		class="w-full text-gray-50 text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		use:enhance
 	>
 		<label>
 			<input
