@@ -11,6 +11,9 @@ export default {
 
   ],
   theme: {
+    // colors: {
+    //   authButtons: '#1081aa'
+    // },
     extend: {},
   },
   plugins: [
