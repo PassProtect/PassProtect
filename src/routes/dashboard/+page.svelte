@@ -44,7 +44,7 @@
 	{#each data.accounts as account}
 		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
 			<h5
-				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center"
+				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center shadow-md shadow-sky-500"
 			>
 				{account.companyname}
 			</h5>

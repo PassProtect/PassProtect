@@ -1,10 +1,9 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { pool } from './db';
-import Cookies from 'js-cookie';
 
 export const actions = {
-	login: async ({ request }) => {
+	login: async ({ cookies, request }) => {
 
 			// get form data
 			const data = await request.formData();
@@ -27,13 +26,23 @@ export const actions = {
 			const isMatch = await Bun.password.verify(password, storedHashedPassword);
 			// if passwords match, set a cookie for user_id and redirect to dashboard
 			if (isMatch) {
-				Cookies.set('userid', `${user_id}`, {
-					path: '/',
-					// httpOnly: true,
-					expires: 1 // 24 hours..?
-				});
-				// return {success : true}
-				throw redirect(307, '/dashboard')
+				const uuid = crypto.randomUUID();
+				const sessionQuery = `INSERT INTO sessions (session_id, user_id) VALUES ($1, $2) ON CONFLICT (user_id) DO NOTHING;`
+				const sessionValues = [uuid, user_id];
+				const response = await pool.query(sessionQuery, sessionValues);
+				//if the session is created, set a cookie and redirect
+				if (response.rowCount === 1) {
+					cookies.set('session', `${uuid}`, {
+						path: '/',
+						httpOnly: true,
+						sameSite: 'strict',
+						// secure: process.env.VITE_ENV === 'production',
+						maxAge: 60*60
+					});
+					throw redirect(307, '/dashboard')
+				}
+				return fail(400, {success:false})
+				
 			} else {
 				// return {success: false};
 				return fail(400, {success:false})
