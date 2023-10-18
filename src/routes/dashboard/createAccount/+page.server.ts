@@ -17,7 +17,7 @@ function encrypt(text: string) {
 }
 
 export const actions = {
-	default: async ({ request }) => {
+  default: async ({ request }) => {
 		const data = await request.formData();
 		const companyName = String(data.get('companyname'));
 		const url = String(data.get('url'));

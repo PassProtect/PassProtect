@@ -7,14 +7,14 @@
 		<h1 class="text-center font-mono text-4xl mb-4">Create User</h1>
 		
 		<label>
-			<input name="username" type="text" placeholder="username" class=" w-full bg-transparent focus:border-none focus:outline-none border-2 rounded-lg border-blue-500 ">
+			<input name="username" type="text" placeholder="username" class=" w-full bg-transparent focus:border-none focus:outline-none border-2 rounded-lg border-sky-600 ">
 		</label>
 		<label>
-			<input name="password" type="password" placeholder="password" class=" w-full bg-transparent focus:border-none focus:outline-none border-2 rounded-lg border-blue-500 ">
+			<input name="password" type="password" placeholder="password" class=" w-full bg-transparent focus:border-none focus:outline-none border-2 rounded-lg border-sky-600 ">
 		</label>
-		<button type="button" class="bg-blue-500 border-none px-8 rounded-lg cursor-pointer hover:bg-blue-400 transition duration-200">Create Account</button>
+		<button type="button" class="bg-sky-600/40 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200 mt-4">Create Account</button>
 	</form>
-	<a href="/" class="bg-blue-500 text-gray-100 border-none px-8 rounded-lg cursor-pointer hover:bg-blue-400 transition duration-200">Back to Login</a>
+	<a href="/" class="bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200">Back to Login</a>
 	
 
 </div>
