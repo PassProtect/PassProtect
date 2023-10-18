@@ -5,6 +5,7 @@ const accountStore = writable({
   url: '',
   username: '',
   password: '',
+  iv: '',
 });
 
 export const userStore = writable({
