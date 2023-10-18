@@ -11,7 +11,10 @@ export const actions = {
     const password = data.get('password');
     const user_id = 1;
  
-    const queryString = 'INSERT INTO accounts (companyName, url, username, password, user_id) VALUES ($1, $2, $3, $4, $5);';
+    const queryString = `
+      INSERT INTO accounts (companyName, url, username, password, user_id) 
+      VALUES ($1, $2, $3, $4, $5);
+    `;
     const queryValues = [companyName, url, username, password, user_id];
     await pool.query(queryString, queryValues);
     return {
