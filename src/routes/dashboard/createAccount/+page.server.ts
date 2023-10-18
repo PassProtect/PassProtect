@@ -17,22 +17,19 @@ function encrypt(text: string) {
 }
 
 export const actions = {
-	default: async ({ request }) => {
-		const data = await request.formData();
-		const companyName = String(data.get('companyname'));
-		const url = String(data.get('url'));
-		const username = String(data.get('username'));
-		const password = String(data.get('password'));
-		const user_id = 1;
-
-		const encryptedPass = encrypt(password);
-
-		const queryString =
-			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6);';
-		const queryValues = [companyName, url, username, encryptedPass.data, encryptedPass.iv, user_id];
-		await pool.query(queryString, queryValues);
-		return {
-			status: 303
-		};
-	}
+  default: async ({ request }) => {
+    const data = await request.formData();
+    const companyName = String(data.get('companyname'));
+    const url = data.get('url');
+    const username = data.get('username');
+    const password = data.get('password');
+    const user_id = 1;
+ 
+    const queryString = 'INSERT INTO accounts (companyName, url, username, password, user_id) VALUES ($1, $2, $3, $4, $5);';
+    const queryValues = [companyName, url, username, password, user_id];
+    await pool.query(queryString, queryValues);
+    return {
+      status: 303,
+    }
+  },
 } satisfies Actions;
