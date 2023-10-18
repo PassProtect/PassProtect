@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import accountStore from '../../../Store.js';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
+	const { transition } = setupViewTransition();
 
 	$: companyname = $accountStore.companyname;
 	$: url = $accountStore.url;
@@ -13,7 +16,7 @@
 	async function deleteAccount() {
 		try {
 			let answer = confirm('Are you sure you want to delete this entry?');
-      console.log('ANSWER: ', answer);
+			console.log('ANSWER: ', answer);
 			if (answer) {
 				const response = await fetch('/api/delete', {
 					method: 'DELETE',
@@ -38,11 +41,15 @@
 	}
 </script>
 
-<div id="viewLink" class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+<div
+	class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden"
+>
 	<div class="border-2 border-sky-600 rounded-xl p-4 px-24 text-gray-50 my-4 text-center text-xl">
 		<h1 class="my-2 text-4xl">{companyname}</h1>
 		<h1 class="my-2">
-			<strong class="text-bold">URL: </strong><a href={url} target="_blank" class="text-blue-500">{url}</a>
+			<strong class="text-bold">URL: </strong><a href={url} target="_blank" class="text-blue-500"
+				>{url}</a
+			>
 		</h1>
 		<h1 class="my-2"><strong class="text-bold">Username: </strong>{username}</h1>
 		<h1 class="my-2"><strong class="text-bold">Password: </strong>{password}</h1>

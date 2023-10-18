@@ -1,10 +1,15 @@
 <script>
 	import accountStore from '../../Store.js';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
 	export let data;
+	
+	const { transition } = setupViewTransition();
 
 	/**
 	 * @param {{ iv: any; password: any; companyname: any; url: any; username: any; }} account
 	 */
+
 	async function updateStore(account) {
 		//async wait for request and update password in store to plaintext
 		const info = {
@@ -33,11 +38,11 @@
 
 <div class="flex justify-center my-6">
 
-  <a href="/dashboard/createAccount" class="flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200">Create Account</a>
+  <a href="/dashboard/createAccount" class="viewLink flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200" use:transition={'viewLink'}>Create Account</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4">
+<div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.accounts as account}
-		<a href="/dashboard/{account.companyname}" class="" id="viewLink" on:click={updateStore(account)}>
+		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
 			<h5
 				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center"
 			>
