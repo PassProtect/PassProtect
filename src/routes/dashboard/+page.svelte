@@ -33,12 +33,16 @@
 
 <div class="flex justify-center my-6">
 
-  <a href="/dashboard/createAccount" class="flex w-48 bg-blue-500 text-gray-100 border-none px-8 rounded-lg cursor-pointer hover:bg-blue-400 transition duration-200">Create Account</a>
+  <a href="/dashboard/createAccount" class="flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200">Create Account</a>
 </div>
-<div class='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4'>
-  {#each data.accounts as account}
-	<a href="/dashboard/{account.companyname}" class="" on:click={updateStore(account)}>
-		<h5 class="text-2xl font-bold border-2 border-sky-500 w-full h-36 flex items-center justify-center">{account.companyname}</h5>
-  </a>
-{/each}
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4">
+	{#each data.accounts as account}
+		<a href="/dashboard/{account.companyname}" class="" id="viewLink" on:click={updateStore(account)}>
+			<h5
+				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center"
+			>
+				{account.companyname}
+			</h5>
+		</a>
+	{/each}
 </div>

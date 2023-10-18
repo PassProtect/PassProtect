@@ -15,7 +15,7 @@
 			<input
 				name="companyname"
 				type="text"
-				class=" w-96 bg-transparent focus:outline-none border-2 rounded-lg border-blue-500"
+				class=" w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
 			/>
 		</label>
 		<label class="py-2">
@@ -23,7 +23,7 @@
 			<input
 				name="url"
 				type="text"
-				class="w-96 bg-transparent focus:outline-none border-2 rounded-lg border-blue-500"
+				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
 			/>
 		</label>
 		<label class="py-2">
@@ -31,7 +31,7 @@
 			<input
 				name="username"
 				type="text"
-				class="w-96 bg-transparent focus:outline-none border-2 rounded-lg border-blue-500"
+				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
 			/>
 		</label>
 		<label class="py-2">
@@ -39,12 +39,12 @@
 			<input
 				name="password"
 				type="password"
-				class="w-96 bg-transparent focus:outline-none border-2 rounded-lg border-blue-500"
+				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
 			/>
 		</label>
 		<button
 			type="submit"
-			class="bg-blue-500/40 hover:bg-blue-500 border-2 border-blue-500 w-96 px-8 py-2 rounded-lg cursor-pointer transition duration-200 mt-4"
+			class="bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 w-96 px-8 py-2 rounded-lg cursor-pointer transition duration-200 mt-4"
 			>Add Account</button
 		>
 	</form>
