@@ -1,35 +1,21 @@
 import type { Actions } from './$types';
 import { pool } from '../db';
-// import crypto from 'crypto';
-
-// function encrypt(text: string) {
-// 	const algorithm = 'aes-256-cbc';
-// 	const pass = process.env.VITE_KEY;
-// 	const key = crypto.scryptSync(pass, 'GfG', 32);
-// 	const iv = crypto.randomBytes(16);
-// 	const cipher = crypto.createCipheriv(algorithm, key, iv);
-
-// 	let encrypted = cipher.update(text);
-
-// 	encrypted = Buffer.concat([encrypted, cipher.final()]);
-
-// 	return { iv: iv.toString('hex'), data: encrypted.toString('hex') };
-// }
+import { redirect } from '@sveltejs/kit';
 
 export const actions = {
 	default: async ({ request }) => {
-		try {
+	
 			// get form data
 			const data = await request.formData();
 			const email = String(data.get('email'));
 			const username = String(data.get('username'));
 			const password = String(data.get('password'));
 
-      // TODO: hash password
-      // const passwordEncryption = encrypt(password);
-      // const hashedPassword = passwordEncryption.data;
-      const hashedPassword = password;
 
+			const hashedPassword = await Bun.password.hash(password, {
+				algorithm:'bcrypt',
+				cost: 4
+			});
       // query database to create account
 			const queryString = `
 					INSERT INTO users (email, username, password) 
@@ -48,8 +34,8 @@ export const actions = {
         // otherwise, if a username is taken... send something back to frontend..? but its a form..?
 
       }
-		} catch (e) {
-			console.log(`An error has occurred: ${e}`);
-		}
+			throw redirect(307, '/');
+
+
 	}
 } satisfies Actions;
