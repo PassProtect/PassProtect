@@ -40,7 +40,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4">
 	{#each data.accounts as account}
-		<a href="/dashboard/{account.companyname}" class="" on:click={updateStore(account)}>
+		<a href="/dashboard/{account.companyname}" class="" id="viewLink" on:click={updateStore(account)}>
 			<h5
 				class="text-2xl font-bold border-2 border-sky-500 w-full h-36 flex items-center justify-center"
 			>
