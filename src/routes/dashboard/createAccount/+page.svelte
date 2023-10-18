@@ -24,7 +24,7 @@
 			<input
 				name="companyname"
 				type="text"
-				class=" w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
 			/>
 		</label>
 		<label class="py-2">
