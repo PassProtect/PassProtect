@@ -50,7 +50,7 @@
 		username: '',
 		password: ''
 	};
-	async function handleSubmit(event) {
+	async function handleSubmit(event:any) {
 		try {
 			const answer = confirm('Are you sure you want to update this entry?');
 
