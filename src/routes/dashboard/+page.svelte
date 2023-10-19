@@ -4,7 +4,7 @@
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
 	export let data;
-	
+
 	const { transition } = setupViewTransition();
 
 	/**
@@ -16,7 +16,7 @@
 		const info = {
 			iv: account.iv,
 			password: account.password
-		}
+		};
 		const data = await fetch('/api/dashboard', {
 			method: 'POST',
 			headers: {
@@ -31,24 +31,27 @@
 				url: account.url,
 				username: account.username,
 				password: pass.plaintext,
-				iv: '',
+				iv: ''
 			};
 		});
 	}
 </script>
 
 <div class="flex justify-center my-6">
-
-  <a href="/dashboard/createAccount" class="viewLink flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200" use:transition={'viewLink'}>Create Account</a>
+	<a
+		href="/dashboard/createAccount"
+		class="viewLink variant-soft-primary hover:variant-soft-secondary px-36 py-2 rounded-md text-primary-500"
+		use:transition={'viewLink'}>Add an Account</a
+	>
 </div>
-<div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
+<div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4">
 	{#each data.accounts as account}
-		<a out:scale href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
-			<h5
-				class="text-2xl font-bold border-2 bg-sky-500/30 hover:bg-sky-500/70 border-sky-500 hover:border-sky-500 w-full h-36 flex items-center justify-center"
-			>
-				{account.companyname}
-			</h5>
+		<a 
+			href="/dashboard/{account.companyname}" 
+			on:click={updateStore(account)}
+			class="viewLink variant-ghost-primary px-4 py-8 hover:variant-ghost-success text-center rounded-lg"
+		>
+			<h1 class="text-2xl font-semibold text-primary-500">{account.companyname}</h1>
 		</a>
 	{/each}
 </div>
