@@ -13,9 +13,9 @@ export const actions = {
 
 			// get stored hashed password and user_id (for cookie) from database
 			const queryString = `
-        SELECT user_id, password
-        FROM users
-        WHERE username = $1
+				SELECT user_id, password
+				FROM users
+				WHERE username = $1
 			;`;
 			const queryValues = [username];
 			const response = await pool.query(queryString, queryValues);
