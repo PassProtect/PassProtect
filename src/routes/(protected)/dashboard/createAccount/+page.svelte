@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { showAlert } from '../../../Store';
+	import { showAlert } from '../../../../Store';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { ActionData } from './$types';
 
@@ -18,11 +18,13 @@
 	<h1 class="text-2xl text-center py-4 text-red-600">Account Creation FAILED</h1>
 	{/if}
 
+
 	<form
 		class="text-center text-lg"
 		method="POST"
-		action="/dashboard/createAccount/"
+		action="/dashboard/createAccount"
 		use:transition={'viewLink'}
+		use:enhance
 	>
 		<label class="py-2">
 			<p>Company Name:</p>

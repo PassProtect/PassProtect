@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { pool } from '../../db';
+import { pool } from '../../(auth)/db';
 
 // function for deleting an individual account
 export const DELETE: RequestHandler = async ({ request, cookies }) => {

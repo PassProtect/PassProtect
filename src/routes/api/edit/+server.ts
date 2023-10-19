@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { pool } from '../../db';
+import { pool } from '../../(auth)/db';
 import crypto from 'crypto';
 
 function encrypt(text: string) {

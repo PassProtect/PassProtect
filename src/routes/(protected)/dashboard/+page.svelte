@@ -1,5 +1,5 @@
 <script>
-	import accountStore from '../../Store.js';
+	import accountStore from '../../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { page } from '$app/stores';
 

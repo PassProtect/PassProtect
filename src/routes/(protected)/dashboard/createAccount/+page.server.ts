@@ -1,5 +1,5 @@
 import { fail, type Actions } from '@sveltejs/kit';
-import { pool } from '../../db';
+import { pool } from '../../../(auth)/db';
 import crypto from 'crypto';
 
 function encrypt(text: string) {
@@ -17,8 +17,10 @@ function encrypt(text: string) {
 }
 
 export const actions = {
-  default: async ({ request }) => {
+	default: async ({ request }) => {
+		console.log('IN REQUEST')
 		const data = await request.formData();
+		console.log('first')
 		const companyName = String(data.get('companyname'));
 		const url = String(data.get('url'));
 		const username = String(data.get('username'));
@@ -26,22 +28,19 @@ export const actions = {
 		const user_id = 1;
 
 		const encryptedPass = encrypt(password);
-
 		const queryString =
 			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6)ON CONFLICT (companyName) DO NOTHING';
 		const queryValues = [companyName, url, username, encryptedPass.data, encryptedPass.iv, user_id];
 		const response = await pool.query(queryString, queryValues);
-		console.log(response)
+		console.log(response);
 		if (response.rowCount) {
 			return {
-				success:true
+				success: true
 			};
+		} else {
+			return fail(400, {
+				success: false
+			});
 		}
-		else {
-			return fail(400,{
-				success:false
-			})
-		}
-		
 	}
 } satisfies Actions;

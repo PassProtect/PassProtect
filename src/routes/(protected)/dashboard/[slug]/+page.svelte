@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import accountStore from '../../../Store.js';
+	import accountStore from '../../../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { PageData } from './$types.js';
 
