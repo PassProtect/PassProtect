@@ -1,16 +1,16 @@
-export const actions = {
-  default: async ({ cookies, request }) => {
-    console.log('HERE')
-    const data = request.clone();
-    console.log(data)
-    const data2 = await request.formData();
-    console.log(data2)
-    // console.log(data.get('companyname'))
-    return {
-      success:true
-    }
-  }
-}
+// export const actions = {
+//   default: async ({ request }) => {
+//     console.log('HERE')
+//     const data = request.clone();
+//     console.log(data)
+//     const data2 = await request.formData();
+//     console.log(data2)
+//     // console.log(data.get('companyname'))
+//     return {
+//       success:true
+//     }
+//   }
+// }
 
 /*headers: Headers {
   "host": "localhost:8080",

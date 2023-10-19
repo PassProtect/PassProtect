@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { showAlert } from '../../../../Store';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import { userStore } from '../../../../Store';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
 	const { transition } = setupViewTransition();
+
+	$: user_id = $userStore.user_id;
+
 
 </script>
 
@@ -26,6 +29,7 @@
 		use:transition={'viewLink'}
 		use:enhance
 	>
+		<input class='hidden' name='user_id' value={$userStore.user_id}>
 		<label class="py-2">
 			<p>Company Name:</p>
 			<input

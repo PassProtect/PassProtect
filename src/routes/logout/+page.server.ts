@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { Actions, PageServerLoad } from '../$types';
+import type { Actions, PageServerLoad } from './$types';
 import { pool } from '../(auth)/db';
 
 export const load: PageServerLoad = async () => {
@@ -7,16 +7,15 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	default({ cookies, locals }) {
-		const queryString = `DELETE FROM sessions WHERE user_id = $1`;
-		const queryValues = [locals.user.user_id];
-		const result = pool.query(queryString, queryValues);
+	default: async({ cookies, locals }) => {
+		const queryString = `DELETE FROM sessions WHERE session_id = $1`;
+		const queryValues = [locals.user.session_id];
+		await pool.query(queryString, queryValues);
 
 		cookies.set('session', '', {
 			path: '/',
 			expires: new Date(0)
 		});
-		//delete the session from DB as well***
 		throw redirect(302, '/');
 	}
 };

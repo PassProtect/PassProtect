@@ -4,8 +4,7 @@ declare global {
 	namespace App {
 		interface Locals {
 			user: {
-				name : string,
-				user_id : number
+				session_id: string
 			}
 		}
 		// interface Error {}
