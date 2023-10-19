@@ -3,6 +3,7 @@
 	import accountStore from '../../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { PageData } from './$types.js';
+	import { scale } from 'svelte/transition';
 
 	const { transition } = setupViewTransition();
 
@@ -78,7 +79,7 @@
 	}
 </script>
 
-<div class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+<div in:scale out:scale class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
 	{#if !editMode}
 		<div class="border-2 border-sky-600 rounded-xl p-4 px-24 text-gray-50 my-4 text-center text-xl">
 			<h1 class="my-2 text-4xl">{companyname}</h1>

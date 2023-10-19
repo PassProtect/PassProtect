@@ -1,4 +1,5 @@
 <script>
+	import { scale } from 'svelte/transition';
 	import accountStore from '../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
@@ -42,7 +43,7 @@
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.accounts as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
+		<a out:scale href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
 			<h5
 				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center"
 			>
