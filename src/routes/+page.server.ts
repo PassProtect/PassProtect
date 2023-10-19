@@ -27,8 +27,8 @@ export const actions = {
 			// if passwords match, set a cookie for user_id and redirect to dashboard
 			if (isMatch) {
 				const uuid = crypto.randomUUID();
-				const sessionQuery = `INSERT INTO sessions (session_id, user_id) VALUES ($1, $2) ON CONFLICT (user_id) DO NOTHING;`
-				const sessionValues = [uuid, user_id];
+				const sessionQuery = `INSERT INTO sessions (session_id, user_id, username) VALUES ($1, $2, $3) ON CONFLICT (user_id) DO NOTHING;`
+				const sessionValues = [uuid, user_id, username];
 				const response = await pool.query(sessionQuery, sessionValues);
 				//if the session is created, set a cookie and redirect
 				if (response.rowCount === 1) {
