@@ -28,7 +28,7 @@ export const actions = {
 
 		const encryptedPass = encrypt(password);
 		const queryString =
-			'INSERT INTO accounts (companyName, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6)ON CONFLICT (companyName) DO NOTHING';
+			'INSERT INTO accounts (companyname, url, username, password, iv, user_id) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT ON CONSTRAINT unique_companyname DO NOTHING';
 		const queryValues = [companyName, url, username, encryptedPass.data, encryptedPass.iv, user_id];
 		const response = await pool.query(queryString, queryValues);
 		if (response.rowCount) {

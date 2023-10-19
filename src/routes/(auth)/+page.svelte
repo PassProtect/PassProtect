@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
@@ -49,10 +48,8 @@
 			Sign Up
 		</a>
 	</form>
-	<a
-		href="/dashboard"
-		class="bg-green-600/40 text-gray-100 border-2 border-green-600 px-8 rounded-lg cursor-pointer hover:bg-green-500 transition duration-200"
-	>
-		!! Skip to Dashboard !!
-	</a>
+
+	<form method="POST" action="/?/Preston">
+		<button class="bg-green-600/40 text-gray-100 border-2 border-green-600 px-8 rounded-lg cursor-pointer hover:bg-green-500 transition duration-200"> Shortcut for Preston</button>
+	</form>
 </div>
