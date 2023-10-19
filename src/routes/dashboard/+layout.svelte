@@ -14,31 +14,32 @@ onNavigate(async (navigation) => {
 	});
 });
 
-const clearCookie = async() => {
-	//actually get user_id
-	const user_id = 28
-	const info = {
-		user_id
-	}
+// const clearCookie = async() => {
+// 	//actually get user_id
+// 	const user_id = 28
+// 	const info = {
+// 		user_id
+// 	}
 
-	const response = await fetch('/api/session', {
-		method: 'DELETE',
-		headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(info)
-	})
+// 	const response = await fetch('/api/session', {
+// 		method: 'DELETE',
+// 		headers: {
+// 				'Content-Type': 'application/json'
+// 			},
+// 			body: JSON.stringify(info)
+// 	})
 
-}
+// }
+
 </script>
 
-<nav class="bg-black/40 grow text-right sticky top-0 px-5 py-4 flex justify-between">
+<!-- <nav class="bg-black/40 grow text-right sticky top-0 px-5 py-4 flex justify-between">
 	<div class="text-2xl align-middle">PassProtect</div>
 	<div>
 		<a href="/dashboard" class="px-2 align-middle">Dashboard</a>
-		<a href="/" class="px-2 align-middle" on:click={clearCookie}> Log Out </a>
+		<a href="/" class="px-2 align-middle"> Log Out </a>
 	</div>
-</nav>
+</nav> -->
 <main>
 	<slot />
 </main>

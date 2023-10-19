@@ -1,6 +1,7 @@
 <script>
 	import accountStore from '../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import { page } from '$app/stores';
 
 	export let data;
 	
@@ -34,10 +35,13 @@
 			};
 		});
 	}
+
 </script>
 
-<div class="flex justify-center my-6">
-
+<div class="flex flex-col justify-center items-center mb-6">
+	{#if $page.data.user}
+		<h1 class='text-4xl mb-4'>Welcome {$page.data.user.name}</h1>
+	{/if}
   <a href="/dashboard/createAccount" class="viewLink flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200" use:transition={'viewLink'}>Create Account</a>
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
