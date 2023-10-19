@@ -3,6 +3,7 @@
 	import accountStore from '../../../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { PageData } from './$types.js';
+	import { scale } from 'svelte/transition';
 
 	const { transition } = setupViewTransition();
 
@@ -14,6 +15,10 @@
 	export let data: PageData;
 
 	let editMode = false;
+
+	let showPassword = false;
+	$: type = showPassword ? 'text' : 'password'
+
 	const user_id = 1; // temporary variable
 	// $: user_id = $userStore.user_id; // real variable
 
@@ -78,19 +83,37 @@
 	}
 </script>
 
-<div class="w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+<div in:scale out:scale class="w-full h-full flex flex-col justify-center items-center overflow-hidden">
 	{#if !editMode}
-		<div class="border-2 border-sky-600 rounded-xl p-4 px-24 text-gray-50 my-4 text-center text-xl">
-			<h1 class="my-2 text-4xl">{companyname}</h1>
-			<h1 class="my-2">
-				<strong class="text-bold">URL: </strong><a href={url} target="_blank" class="text-blue-500"
-					>{url}</a
+		<div data-theme="skeleton" class="bg-gray-800/80 border-2 border-gray-50 rounded-xl p-4 px-24 text-gray-50 mt-[15%] text-center text-xl">
+			<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
+			<h1 class="my-2 pb-4">
+				<strong class="text-bold">URL: </strong>
+				<a 
+					href={url} 
+					target="_blank" 
+					class="text-sky-500"
 				>
+					{url}
+				</a>
 			</h1>
-			<h1 class="my-2"><strong class="text-bold">Username: </strong>{username}</h1>
-			<h1 class="my-2"><strong class="text-bold">Password: </strong>{password}</h1>
+			<h1 class="my-2">
+				<strong class="text-bold">Username: {username}</strong>
+			</h1>
+			<h1 class="my-2 relative">
+				<strong class="text-bold">Password: {#if showPassword} {password}{/if}{#if !showPassword}**********{/if}</strong>
+				
+				<button 
+					class="align-middle"
+					on:click={ () => showPassword = !showPassword }
+				>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute inline-block bottom-2 right-10">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+				</svg>				  
+				</button>  
+			</h1>
 			<button
-				class="mx-auto bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 e rounded-md mt-3 py-1 px-8 text-lg w-full"
+				class="mx-auto bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 e rounded-md mt-8 py-1 px-8 text-lg w-full"
 				on:click={() => {
 					editMode = true;
 				}}

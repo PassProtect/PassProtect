@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^2.3.0",
+    "@skeletonlabs/tw-plugin": "^0.2.2",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.20.4",
     "@types/bcrypt": "^5.0.1",
@@ -36,7 +37,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@skeletonlabs/tw-plugin": "^0.2.2",
     "@tailwindcss/forms": "^0.5.6",
     "autoprefixer": "^10.4.16",
     "axios": "^1.5.1",
