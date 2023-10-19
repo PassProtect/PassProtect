@@ -98,20 +98,11 @@
 				</a>
 			</h1>
 			<h1 class="my-2">
-				<strong class="text-bold">Username: </strong>
-				<input 
-					type="text"
-					value={username}
-					class="bg-transparent"
-				/>
+				<strong class="text-bold">Username: {username}</strong>
 			</h1>
 			<h1 class="my-2 relative">
-				<strong class="text-bold">Password: </strong>
-				<input 
-					type={type}
-					value={password}
-					class="bg-transparent"
-				/>
+				<strong class="text-bold">Password: {#if showPassword} {password}{/if}{#if !showPassword}**********{/if}</strong>
+				
 				<button 
 					class="align-middle"
 					on:click={ () => showPassword = !showPassword }
