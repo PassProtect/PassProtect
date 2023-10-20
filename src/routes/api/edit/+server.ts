@@ -1,21 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { pool } from '../../(auth)/db';
-import crypto from 'crypto';
 import { encrypt } from '../../../components/functions/encryption';
 
-// function encrypt(text: string) {
-// 	const algorithm = 'aes-256-cbc';
-// 	const pass = process.env.VITE_KEY;
-// 	const key = crypto.scryptSync(pass, 'GfG', 32);
-// 	const iv = crypto.randomBytes(16);
-// 	const cipher = crypto.createCipheriv(algorithm, key, iv);
-
-// 	let encrypted = cipher.update(text);
-
-// 	encrypted = Buffer.concat([encrypted, cipher.final()]);
-
-// 	return { iv: iv.toString('hex'), data: encrypted.toString('hex') };
-// }
 type body = {
 	companyname: string;
 	user_id: number;
