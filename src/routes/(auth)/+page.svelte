@@ -6,15 +6,15 @@
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
-	<h1 class="text-center font-mono text-4xl mb-4">PassProtect</h1>
+	<h1 class="text-center font-mono font-bold text-6xl mb-4 bg-gradient-to-br from-primary-700 to-secondary-300 bg-clip-text text-transparent box-decoration-clone">PassProtect</h1>
 
 	{#if form?.success === false}
-	<h1>Login FAILED GG</h1>
+	<h1 class="text-error-600">Unsuccessful login. Please try again.</h1>
   {/if}
 	<form
 		method="POST"
 		action="/?/login"
-		class="w-full text-gray-50 text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		class="w-full text-center flex flex-col gap-2 px-12 pt-12 pb-2"
 		use:enhance
 	>
 		<label>
@@ -22,7 +22,7 @@
 				name="username"
 				type="text"
 				placeholder="username"
-				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-secondary-600"
 				required
 			/>
 		</label>
@@ -31,19 +31,19 @@
 				name="password"
 				type="password"
 				placeholder="password"
-				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-secondary-600"
 				required
 			/>
 		</label>
 		<button
 			type="submit"
-			class="w-full max-w-lg py-1 mx-auto bg-sky-600/40 text-gray-50 border-2 border-sky-600/70 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200"
+			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
 		>
 			Login
 		</button>
 		<a
 			href="/createUser"
-			class="w-full max-w-lg py-1 mx-auto bg-sky-600/40 text-gray-50 border-2 border-sky-600/70 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200"
+			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
 		>
 			Sign Up
 		</a>

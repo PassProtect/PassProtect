@@ -12,13 +12,13 @@
 
 </script>
 
-<div class="">
-	<h1 class="text-4xl text-center py-8">Add New Account</h1>
+<div data-theme="skeleton" class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
+	<h1 class="my-2 text-4xl pb-8">Add New Account</h1>
 	{#if (form?.success)}
-	<h1 class="text-2xl text-center py-4 text-green-400">Account Created</h1>
+		<h1 class="text-2xl text-center py-4 text-success-600">Account Created</h1>
 	{/if}
 	{#if  (form?.success === false)}
-	<h1 class="text-2xl text-center py-4 text-red-600">Account Creation FAILED</h1>
+		<h1 class="text-2xl text-center py-4 text-error-600">Account could not be created. Please try again.</h1>
 	{/if}
 
 
@@ -35,7 +35,8 @@
 			<input
 				name="companyname"
 				type="text"
-				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				placeholder="Google"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
@@ -44,7 +45,7 @@
 			<input
 				name="url"
 				type="text"
-				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
@@ -53,7 +54,7 @@
 			<input
 				name="username"
 				type="text"
-				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
@@ -62,13 +63,13 @@
 			<input
 				name="password"
 				type="password"
-				class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
 		<button
 			type="submit"
-			class="bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 w-96 px-8 py-2 rounded-lg cursor-pointer transition duration-200 mt-4"
+			class="viewLink variant-soft-tertiary hover:variant-filled-tertiary px-6 py-2 rounded-md text-tertiary-800 w-full mx-auto border-2 border-tertiary-500 mt-4"
 			>Add Account</button
 		>
 	</form>

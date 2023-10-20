@@ -85,7 +85,7 @@
 
 <div in:scale out:scale class="w-full h-full flex flex-col justify-center items-center overflow-hidden">
 	{#if !editMode}
-		<div data-theme="skeleton" class="bg-gray-800/80 border-2 border-gray-50 rounded-xl p-4 px-24 text-gray-50 mt-[15%] text-center text-xl">
+		<div data-theme="skeleton" class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
 			<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
 			<h1 class="my-2 pb-4">
 				<strong class="text-bold">URL: </strong>
@@ -98,10 +98,20 @@
 				</a>
 			</h1>
 			<h1 class="my-2">
-				<strong class="text-bold">Username: {username}</strong>
+				<strong class="text-bold">Username: </strong>
+				<input 
+					type="text"
+					value={username}
+					class="bg-transparent border-none"
+				/>
 			</h1>
 			<h1 class="my-2 relative">
-				<strong class="text-bold">Password: {#if showPassword} {password}{/if}{#if !showPassword}**********{/if}</strong>
+				<strong class="text-bold">Password: </strong>
+				<input 
+					type={type}
+					value={password}
+					class="bg-transparent border-none"
+				/>
 				
 				<button 
 					class="align-middle"
@@ -113,7 +123,7 @@
 				</button>  
 			</h1>
 			<button
-				class="mx-auto bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 e rounded-md mt-8 py-1 px-8 text-lg w-full"
+				class="viewLink variant-soft-tertiary hover:variant-filled-tertiary px-6 py-2 rounded-md text-tertiary-800 w-full mx-auto border-2 border-tertiary-500 mt-4"
 				on:click={() => {
 					editMode = true;
 				}}
@@ -121,7 +131,7 @@
 				Edit Account
 			</button>
 			<button
-				class="mx-auto bg-red-600/40 hover:bg-red-600/75 border-2 border-red-600 hover:border-white rounded-md mt-3 py-1 px-8 text-lg w-full"
+				class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
 				on:click={deleteAccount}
 			>
 				Delete Account
@@ -130,47 +140,47 @@
 	{/if}
 
 	{#if editMode}
-		<div class="border-2 border-sky-600 rounded-xl p-4 px-24 text-gray-50 my-4 text-center text-xl">
-			<h1 class="my-2 text-4xl">{companyname}</h1>
+		<div data-theme="skeleton" class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
+			<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
 			<form class="text-center text-lg" on:submit={handleSubmit}>
 				<input class="hidden" name="companyname" bind:value={companyname} />
 				<label class="py-2">
-					<p>Change "{url}" to :</p>
+					<p>New Link:</p>
 					<input
 						name="url"
 						type="text"
 						placeholder={url}
 						bind:value={formData.url}
-						class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+						class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 					/>
 				</label>
 				<label class="py-2">
-					<p>Change "{username}" to :</p>
+					<p>New Username:</p>
 					<input
 						name="username"
 						type="text"
 						placeholder={username}
 						bind:value={formData.username}
-						class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+						class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 					/>
 				</label>
 				<label class="py-2">
-					<p>Change "{password}" to :</p>
+					<p>New Password:</p>
 					<input
 						name="password"
-						type="password"
+						type="text"
 						placeholder={password}
 						bind:value={formData.password}
-						class="w-96 bg-transparent focus:border-sky-600 focus:outline-none border-2 rounded-lg border-sky-600"
+						class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 					/>
 				</label>
 				<button
 					type="submit"
-					class="bg-red-600/40 hover:bg-red-600/75 border-2 border-red-600 hover:border-white w-96 px-8 py-2 rounded-lg cursor-pointer transition duration-200 mt-4"
+					class="viewLink variant-soft-tertiary hover:variant-filled-tertiary px-6 py-2 rounded-md text-tertiary-800 w-full mx-auto border-2 border-tertiary-500 mt-4"
 					>Submit Changes</button
 				>
 				<button
-					class="bg-sky-600/40 hover:bg-sky-500 border-2 border-sky-600 w-96 px-8 py-2 rounded-lg cursor-pointer transition duration-200 mt-4"
+					class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
 					on:click={() => {
 						editMode = false;
 					}}>Cancel</button

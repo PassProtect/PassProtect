@@ -2,6 +2,7 @@
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import forms from '@tailwindcss/forms';
+import { customThemeOne } from './customThemeOne.ts';
 
 
 export default {
@@ -19,7 +20,7 @@ export default {
   },
   plugins: [
     skeleton({
-			themes: { preset: ['rocket', 'wintry', 'skeleton', 'crimson', 'gold-nouveau'] }
+			themes: { preset: ['rocket', 'wintry', 'skeleton', 'crimson', 'gold-nouveau', customThemeOne] }
 		}),
 		forms
   ],

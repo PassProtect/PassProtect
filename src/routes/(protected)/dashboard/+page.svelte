@@ -44,14 +44,14 @@
 </script>
 
 <div class="flex flex-col justify-center items-center mb-6">
-	<h1 class="text-2xl mb-4">Hello {data.userInfo.username}</h1>
-  <a href="/dashboard/createAccount" class="viewLink flex bg-sky-600/40 text-gray-100 border-2 border-sky-600 px-8 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200" use:transition={'viewLink'}>Create Account</a>
+	<h1 class="text-2xl my-4 text-secondary-600">Welcome, {data.userInfo.username}</h1>
+  <a href="/dashboard/createAccount" class="viewLink variant-soft-primary hover:variant-soft-secondary px-36 py-2 rounded-md text-primary-500" use:transition={'viewLink'}>Create Account</a>
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)}>
+		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="viewLink variant-ghost-primary px-4 py-16 hover:variant-ghost-success text-center rounded-lg">
 			<h5
-				class="text-2xl font-bold border-2 bg-slate-500/30 hover:bg-slate-500/50 border-sky-500 hover:border-sky-400 w-full h-36 flex items-center justify-center hover:shadow-md hover:shadow-sky-500"
+				class="text-2xl font-semibold text-primary-500"
 			>
 				{account.companyname}
 			</h5>

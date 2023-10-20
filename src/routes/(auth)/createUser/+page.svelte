@@ -5,15 +5,15 @@
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
-	<h1 class="text-center font-mono text-4xl mb-4">Create User</h1>
+	<h1 class="text-center font-mono text-4xl mb-4">Sign Up</h1>
 
 	{#if (form?.failed)}
-	<h1>Create User FAILED lol</h1>
+	<h1>You messed up signing up somehow. Nice.</h1>
 	{/if}
 	<form 
 		method="POST" 
 		action="/createUser" 
-		class="w-full text-gray-50 text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		class="w-full text-center flex flex-col gap-2 px-12 pt-12 pb-2"
 		use:enhance
 	>
 		<label>
@@ -21,7 +21,7 @@
 				name="email"
 				type="text"
 				placeholder="email"
-				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
@@ -30,7 +30,7 @@
 				name="username"
 				type="text"
 				placeholder="username"
-				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
 				required
 			/>
 		</label>
@@ -39,19 +39,19 @@
 				name="password"
 				type="password"
 				placeholder="password"
-				class="w-full max-w-lg bg-transparent border-2 rounded-lg focus:border-sky-600 border-sky-600/70"
+				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600 text-tertiary-300"
 				required
 			/>
 		</label>
 		<button
 			type="submit"
-			class="w-full max-w-lg py-1 mx-auto bg-sky-600/40 text-gray-50 border-2 border-sky-600/70 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200"
+			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
 		>
 			Create Account
 		</button>
 		<a
 			href="/"
-			class="w-full max-w-lg py-1 mx-auto bg-sky-600/40 text-gray-50 border-2 border-sky-600/70 rounded-lg cursor-pointer hover:bg-sky-500 transition duration-200"
+			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
 		>
 			Back to Login
 		</a>

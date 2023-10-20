@@ -1,28 +1,62 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
+
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
+	setupViewTransition();
+
+	let curTheme = 'rocket';
+	const setTheme = (theme: string) => {
+		if (browser) {
+			const bodyElement = document.body;
+			bodyElement.setAttribute('data-theme', theme);
+		}
+	};
+
+	$: {
+		setTheme(curTheme);
+	}
+
+	onNavigate(async (navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
-<nav class="bg-black text-gray-50 grow text-right sticky top-0 px-5 py-4 flex justify-between">
-	{#if !$page.data.user}
-		<a href='/'>LogIn</a>
-		<a href="/createUser">Register</a>
-	{/if}
-
-	{#if $page.data.user}
-	<div class="text-2xl align-middle">PassProtect</div>
-	<div class="flex">
-		<a href="/dashboard" class="px-2 align-middle">Dashboard</a>
-		<form action="/logout" method="POST" class="px-2 align-middle" use:enhance>
-			<button type="submit">Log Out</button>
-		</form>
+{#if $page.data.user}
+<nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right sticky top-0 px-5 py-4 flex justify-between">
+	<div class="text-3xl font-bold my-auto text-primary-500">PassProtect</div>
+	<div>
+		<div class="flex flex-row items-center justify-between p-2 gap-x-4">
+			<select class="select text-sm font-light rounded-md pl-4 pr-10" bind:value={curTheme}>
+				<option value="rocket" selected>Rocket🚀</option>
+				<option value="wintry">Wintry🥶</option>
+				<option value="skeleton">Naturey🌳</option>
+				<option value="crimson">Crimson🔴</option>
+				<option value="gold-nouveau">Luxury🌟</option>
+				<option value="customThemeOne">Custom</option>
+			</select>
+			<div>
+				<LightSwitch />
+			</div>
+		<a href="/dashboard" class="align-middle text-primary-500 font-bold">Dashboard</a>
+		<a href="/" class="align-middle text-primary-500 font-bold w-full"> Log Out </a>
 	</div>
-		
-	{/if}
 </nav>
-<main
-	class="bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-gray-700 via-neutral-900 to-black h-screen text-gray-50"
->
+{/if}
+
+
+
+<main>
 	<slot />
 </main>
