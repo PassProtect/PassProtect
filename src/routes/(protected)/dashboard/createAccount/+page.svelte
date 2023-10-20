@@ -7,7 +7,6 @@
 	export let form: ActionData;
 	const { transition } = setupViewTransition();
 
-	$: user_id = $userStore.user_id;
 
 
 </script>

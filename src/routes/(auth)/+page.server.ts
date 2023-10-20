@@ -61,7 +61,7 @@ export const actions = {
 				httpOnly: true,
 				sameSite: 'strict',
 				// secure: process.env.VITE_ENV === 'production',
-				maxAge: 60 * 60
+				maxAge: 60 * 15
 			});
 			throw redirect(307, '/dashboard');
 		}
