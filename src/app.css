@@ -14,3 +14,9 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.inputBox {
+	background-color: rgba(var(--color-secondary-300));
+	border: 2;
+	border-color: chartreuse;
+}
