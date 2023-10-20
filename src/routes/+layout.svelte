@@ -4,7 +4,7 @@
 	import { onNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
-
+	import { enhance } from '$app/forms';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
 	setupViewTransition();
@@ -49,9 +49,10 @@
 			<div>
 				<LightSwitch />
 			</div>
-		<a href="/dashboard" class="align-middle text-primary-500 font-bold">Dashboard</a>
-		<a href="/" class="align-middle text-primary-500 font-bold w-full"> Log Out </a>
-	</div>
+		<a href="/dashboard" class="align-middle text-primary-500 font-bold ">Dashboard</a>
+		<form action="/api/logout" method="POST" class="px-2 align-middle text-primary-500 font-bold" use:enhance>
+			<button type="submit">LogOut</button>
+		</form>	</div>
 </nav>
 {/if}
 

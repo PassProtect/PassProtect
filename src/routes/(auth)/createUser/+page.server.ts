@@ -1,14 +1,6 @@
-import type { Actions, PageServerLoad } from './$types';
+import type { Actions } from './$types';
 import { pool } from '../db';
 import { redirect, fail } from '@sveltejs/kit';
-
-export const load: PageServerLoad = async (event) => {
-	//if user already has a cookie, route them to the dashboard
-	if (event.locals.user) {
-		throw redirect(302, '/dashboard');
-	}
-	return {};
-};
 
 export const actions = {
 	default: async ({ request }) => {

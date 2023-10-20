@@ -17,13 +17,13 @@ function encrypt(text: string) {
 }
 type body = {
 	companyname: string;
+	user_id: number;
 	url: string;
 	username: string;
 	password: string;
 };
 export const POST: RequestHandler = async ({ request }) => {
 	const body: body = await request.json();
-	const user_id = 1;
 
 	const encryptedPass = encrypt(body.password);
 
@@ -34,9 +34,10 @@ export const POST: RequestHandler = async ({ request }) => {
 		body.username,
 		encryptedPass.data,
 		encryptedPass.iv,
-		user_id,
+		body.user_id,
 		body.companyname
 	];
+	
 	await pool.query(queryString, queryValues);
 
 	const res = {};

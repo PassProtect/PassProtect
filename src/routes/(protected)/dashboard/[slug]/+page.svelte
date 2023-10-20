@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import accountStore from '../../../../Store.js';
+	import accountStore, { userStore } from '../../../../Store.js';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { PageData } from './$types.js';
 	import { scale } from 'svelte/transition';
@@ -11,6 +11,7 @@
 	$: url = $accountStore.url;
 	$: username = $accountStore.username;
 	$: password = $accountStore.password;
+	$: user_id = $userStore.user_id
 
 	export let data: PageData;
 
@@ -19,8 +20,6 @@
 	let showPassword = false;
 	$: type = showPassword ? 'text' : 'password'
 
-	const user_id = 1; // temporary variable
-	// $: user_id = $userStore.user_id; // real variable
 
 	async function deleteAccount() {
 		try {
@@ -51,6 +50,7 @@
 
 	let formData = {
 		companyname: data.slug,
+		user_id: $userStore.user_id,
 		url: '',
 		username: '',
 		password: ''
@@ -98,20 +98,11 @@
 				</a>
 			</h1>
 			<h1 class="my-2">
-				<strong class="text-bold">Username: </strong>
-				<input 
-					type="text"
-					value={username}
-					class="bg-transparent border-none"
-				/>
+				<strong class="text-bold">Username: {username}</strong>
+
 			</h1>
 			<h1 class="my-2 relative">
-				<strong class="text-bold">Password: </strong>
-				<input 
-					type={type}
-					value={password}
-					class="bg-transparent border-none"
-				/>
+				<strong class="text-bold">Password: {#if showPassword}{password}{/if} {#if !showPassword}********{/if}</strong>
 				
 				<button 
 					class="align-middle"
