@@ -1,6 +1,10 @@
 <script>
 	import { enhance } from '$app/forms';
 	import { createEventDispatcher } from 'svelte';
+
+	import FormInput from '../FormInput.svelte';
+	import Button from '../Button.svelte';
+
 	export let companyname = 'companyname';
 	export let url = 'url';
 	export let user_id = 0;
@@ -30,47 +34,34 @@
 	>
 		<input class="hidden" name="companyname" value={companyname} />
 		<input class="hidden" name="user_id" value={user_id} />
-		<label class="py-2">
-			<p>New Link:</p>
-			<input
-				name="url"
-				type="text"
-				placeholder={url}
-				value={url}
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
-			/>
-		</label>
-		<label class="py-2">
-			<p>New Username:</p>
-			<input
-				name="username"
-				type="text"
-				placeholder={username}
-				value={username}
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
-			/>
-		</label>
-		<label class="py-2">
-			<p>New Password:</p>
-			<input
-				name="password"
-				type="text"
-				placeholder={password}
-				value={password}
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
-			/>
-		</label>
+		
+		<p>New Link:</p>
+		<FormInput name='url' placeholder={url} value={url}/>
+		
+		<p>New Username:</p>
+		<FormInput name='username' placeholder={username} value={username}/>
+
+		<p>New Password:</p>
+		<FormInput name='password' placeholder={password} value={password}/>
+
+		<Button type='submit' label='Confirm Changes'/>
+
+		<!-- <Button 
+			label='Cancel' 
+			on:click={() => {
+				editMode = false;
+				dispatch('editModeOff', editMode);
+			}}
+		/> -->
 		<button
-			type="submit"
-			class="viewLink variant-soft-tertiary hover:variant-filled-tertiary px-6 py-2 rounded-md text-tertiary-800 w-full mx-auto border-2 border-tertiary-500 mt-4"
-			>Submit Changes</button
+			class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
+			on:click={() => {
+				editMode = false;
+				dispatch('editModeOff', editMode);
+			}}
 		>
-	</form>
-	<button
-		class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
-		on:click={() => {
-			editMode = false;
-			dispatch('editModeOff', editMode);
-		}}>Cancel</button
+		Cancel
+		</button
 	>
+	</form>
 </div>

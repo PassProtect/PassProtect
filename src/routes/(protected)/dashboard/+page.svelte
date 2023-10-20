@@ -49,7 +49,7 @@
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="viewLink variant-ghost-primary px-4 py-16 hover:variant-ghost-success text-center rounded-lg">
+		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} data-theme="skeleton" class="viewLink variant-ghost-secondary px-4 py-16 hover:variant-ghost-success text-center rounded-lg">
 			<h5
 				class="text-2xl font-semibold text-primary-500"
 			>

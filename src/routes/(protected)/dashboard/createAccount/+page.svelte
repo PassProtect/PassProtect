@@ -12,7 +12,7 @@
 
 </script>
 
-<div data-theme="skeleton" class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
+<div data-theme="skeleton" class="viewLink variant-soft-secondary w-full max-w-lg mx-auto border-2 border-primary-500 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
 	<h1 class="my-2 text-4xl pb-8">Add New Account</h1>
 	{#if (form?.success)}
 		<h1 class="text-2xl text-center py-4 text-success-600">Account Created</h1>
