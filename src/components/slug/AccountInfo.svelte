@@ -1,5 +1,5 @@
 <script>
-	import { deleteAccount } from '../slug';
+	import { deleteAccount } from '../functions/slug';
   import { createEventDispatcher } from 'svelte';
 	export let password = 'password';
 	export let companyname = 'company';
