@@ -21,7 +21,7 @@
 	<form
 		method="POST"
 		action="/?/login"
-		class="w-full text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		class="w-full text-center flex flex-col gap-0 px-12 pt-12 pb-2"
 		use:enhance
 	>
 		<FormInput name="username" type="text" placeholder="username"/>

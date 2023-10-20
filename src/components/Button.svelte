@@ -3,7 +3,7 @@
     export let label = '';
     export let type: 'button' | 'submit' | null = 'button';
 
-    const buttonClass = 'viewLink variant-soft-secondary hover:variant-filled-secondary text-center py-2 rounded-md w-full max-w-lg mx-auto my-4 border-2 border-secondary-500'
+    const buttonClass = 'viewLink variant-soft-primary hover:variant-filled-primary text-center py-2 rounded-md w-full max-w-lg mx-auto my-2 border-2 border-primary-500'
 
     const anchorClass = `${buttonClass}`
 </script>
