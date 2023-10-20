@@ -62,7 +62,7 @@
 	</button>
 	<button
 		class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
-		on:click={deleteAccount(companyname, user_id)}
+		on:click={() => deleteAccount(companyname, user_id)}
 	>
 		Delete Account
 	</button>
