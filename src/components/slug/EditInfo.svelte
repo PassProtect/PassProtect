@@ -18,12 +18,11 @@
 	<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
 	<form
 		class="text-center text-lg"
-		action="/dashboard/[slug]"
+		action="/dashboard/[slug]?/edit"
 		method="post"
 		use:enhance={({ cancel }) => {
 			const answer = confirm('Are you sure you want to update this entry?');
 			if (!answer) {
-				console.log('NAH');
 				cancel();
 			}
 		}}

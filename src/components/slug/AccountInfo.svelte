@@ -1,6 +1,6 @@
 <script>
-	import { deleteAccount } from '../functions/slug';
-  import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+	import { enhance } from '$app/forms';
 	export let password = 'password';
 	export let companyname = 'company';
 	export let url = 'url';
@@ -9,12 +9,12 @@
 	export let editMode = false;
 	export let showPassword = false;
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
-  function updateEditMode() {
-    editMode = true;
-    dispatch('editModeOn', editMode)
-  }
+	function updateEditMode() {
+		editMode = true;
+		dispatch('editModeOn', editMode);
+	}
 </script>
 
 <div
@@ -60,10 +60,16 @@
 	>
 		Edit Account
 	</button>
-	<button
-		class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2"
-		on:click={deleteAccount(companyname, user_id)}
+	<form
+		method="post"
+		action="/dashboard/[slug]?/delete"
+		use:enhance={({ cancel }) => {
+			const answer = confirm('Are you sure you want to delete this entry?');
+			if (!answer) cancel();
+		}}
 	>
-		Delete Account
-	</button>
+		<input class="hidden" name="companyname" value={companyname} />
+		<input class="hidden" name="user_id" value={user_id} />
+		<button type="submit" class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2">Delete Account</button>
+	</form>
 </div>
