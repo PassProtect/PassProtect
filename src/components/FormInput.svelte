@@ -6,10 +6,11 @@
 
 <label for={name}>
 	<input
-		name={name}
-		type={type}
-		placeholder={placeholder}
-		class="w-full my-2 bg-primary-500/20 max-w-lg border-2 border-primary-800 rounded-lg focus:border-primary-400 text-primary-800"
+		id={name}
+		{name}
+		{type}
+		{placeholder}
+		class="w-full my-2 bg-primary-500/20 max-w-lg border-2 border-primary-800 rounded-lg focus:border-primary-400 text-primary-100"
 		required
 	/>
 </label>

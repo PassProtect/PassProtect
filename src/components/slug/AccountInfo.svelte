@@ -19,9 +19,10 @@
 
 <div
 	data-theme="skeleton"
-	class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl"
+	class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl  mt-32 text-center text-xl"
 >
-	<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
+	<a href='/dashboard' class="flex justify-end p-2 text-red-600">X</a>
+	<div class="pb-8 px-24">
 	<h1 class="my-2 pb-4">
 		<strong class="text-bold">URL: </strong>
 		<a href={url} target="_blank" class="text-sky-500">
@@ -72,4 +73,5 @@
 		<input class="hidden" name="user_id" value={user_id} />
 		<button type="submit" class="viewLink variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2">Delete Account</button>
 	</form>
+	</div>
 </div>

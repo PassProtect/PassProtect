@@ -6,8 +6,9 @@ export const actions = {
 	edit: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());
 		const { companyname, url, username, password, user_id } = data;
+    const passwordString = String(password)
 
-		const encryptedPass = encrypt(password);
+		const encryptedPass = encrypt(passwordString);
 
 		const queryString =
 			'UPDATE accounts SET url = $1, username = $2, password = $3, iv = $4 WHERE user_id = $5 AND companyname = $6;';

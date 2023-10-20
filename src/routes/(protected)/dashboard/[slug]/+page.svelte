@@ -13,20 +13,8 @@
 	$: username = $accountStore.username;
 	$: password = $accountStore.password;
 	$: user_id = $userStore.user_id;
-
-	export let data: PageData;
-
 	$: editMode = false;
 	$: showPassword = false;
-	$: type = showPassword ? 'text' : 'password';
-
-	let formData = {
-		companyname: data.slug,
-		user_id: $userStore.user_id,
-		url: '',
-		username: '',
-		password: ''
-	};
 </script>
 
 <div
@@ -50,6 +38,15 @@
 	{/if}
 
 	{#if editMode}
-		<EditInfo {companyname} {password} {url} {user_id} {username} on:editModeOff={()=> {editMode = false}} />
+		<EditInfo
+			{companyname}
+			{password}
+			{url}
+			{user_id}
+			{username}
+			on:editModeOff={() => {
+				editMode = false;
+			}}
+		/>
 	{/if}
 </div>
