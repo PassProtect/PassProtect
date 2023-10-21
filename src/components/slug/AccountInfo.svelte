@@ -18,19 +18,19 @@
 </script>
 
 <div
-	data-theme="skeleton"
-	class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl  mt-32 text-center text-xl"
+	class="viewLink w-full max-w-lg mx-auto border-2 rounded-xl mt-32 text-center text-xl overflow-x-auto "
 >
-	<a href='/dashboard' class="flex justify-end p-2 text-red-600">X</a>
+	<div class="flex justify-end p-2 text-red-600"><a href='/dashboard'>X</a></div>
 	<div class="pb-8 px-24">
-	<h1 class="my-2 pb-4">
+	<h1 class='text-4xl pb-2'>{companyname}</h1>
+	<h1 class="my-2">
 		<strong class="text-bold">URL: </strong>
 		<a href={url} target="_blank" class="text-sky-500">
 			{url}
 		</a>
 	</h1>
 	<h1 class="my-2">
-		<strong class="text-bold">Username: {username}</strong>
+		Username: {username}
 	</h1>
 	<h1 class="my-2 relative">
 		<strong class="text-bold"
@@ -45,7 +45,7 @@
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-6 h-6 absolute inline-block bottom-2 right-10"
+				class="w-6 h-6 absolute inline-block bottom-2 right-0"
 			>
 				<path
 					stroke-linecap="round"

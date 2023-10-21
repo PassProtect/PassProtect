@@ -10,7 +10,7 @@
 		{name}
 		{type}
 		{placeholder}
-		class="w-full my-2 bg-primary-500/20 max-w-lg border-2 border-primary-800 rounded-lg focus:border-primary-400 text-primary-100"
+		class="input w-full my-2 max-w-lg"
 		required
 	/>
 </label>

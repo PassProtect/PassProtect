@@ -21,7 +21,7 @@
 				name="email"
 				type="text"
 				placeholder="email"
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
+				class="input w-full max-w-lg"
 				required
 			/>
 		</label>
@@ -30,7 +30,7 @@
 				name="username"
 				type="text"
 				placeholder="username"
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600"
+				class="input w-full max-w-lg"
 				required
 			/>
 		</label>
@@ -39,7 +39,7 @@
 				name="password"
 				type="password"
 				placeholder="password"
-				class="input w-full max-w-lg border-2 rounded-lg focus:border-tertiary-600 text-tertiary-300"
+				class="input w-full max-w-lg"
 				required
 			/>
 		</label>

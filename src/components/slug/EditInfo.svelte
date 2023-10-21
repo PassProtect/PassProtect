@@ -12,8 +12,7 @@
 </script>
 
 <div
-	data-theme="skeleton"
-	class="viewLink variant-soft-tertiary w-full max-w-lg mx-auto border-2 border-tertiary-400 rounded-xl p-8 px-24 mt-[15%] text-center text-xl"
+	class="viewLink w-full max-w-lg mx-auto border-2 rounded-xl p-8 px-24 mt-32 text-center text-xl"
 >
 	<h1 class="my-2 text-4xl pb-8">{companyname}</h1>
 	<form

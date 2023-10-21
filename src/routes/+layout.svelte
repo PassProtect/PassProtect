@@ -34,7 +34,7 @@
 </script>
 
 {#if $page.data.user}
-<nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right sticky top-0 px-5 py-4 flex justify-between">
+<nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right  top-0 px-5 py-4 flex justify-between">
 	<div class="text-3xl font-bold my-auto text-primary-500">PassProtect</div>
 	<div>
 		<div class="flex flex-row items-center justify-between p-2 gap-x-4">
@@ -44,7 +44,11 @@
 				<option value="skeleton">Naturey🌳</option>
 				<option value="crimson">Crimson🔴</option>
 				<option value="gold-nouveau">Luxury🌟</option>
-				<option value="customThemeOne">Custom</option>
+				<option value="seafoam">Seafoam</option>
+				<option value="customThemeOne">CustomOne</option>
+				<option value="customThemeTwo">CustomTwo</option>
+				<option value="customThemeThree">CustomThree</option>
+				
 			</select>
 			<div>
 				<LightSwitch />
