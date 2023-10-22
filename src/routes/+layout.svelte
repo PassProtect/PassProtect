@@ -41,7 +41,7 @@
 			<!-- <select class="select text-sm font-light rounded-md pl-4 pr-10" bind:value={curTheme}>
 				<option value="rocket" selected>Rocket🚀</option>
 				<option value="wintry">Wintry🥶</option>
-				<option value="skeleton">Naturey🌳</option>
+				<option value="skeleton">SKELETON💀</option>
 				<option value="crimson">Crimson🔴</option>
 				<option value="gold-nouveau">Luxury🌟</option>
 				<option value="seafoam">Seafoam</option>
