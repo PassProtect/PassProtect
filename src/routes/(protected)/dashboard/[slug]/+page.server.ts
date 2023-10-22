@@ -1,6 +1,12 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { pool } from '../../../(auth)/db.js';
 import { encrypt } from '../../../../components/functions/encryption';
+import type { PageServerLoad } from './$types.js';
+
+//runs the auth check again before fetching any data
+export const load: PageServerLoad = async ({ parent }) => {
+		await parent();
+}
 
 export const actions = {
 	edit: async ({ request }) => {

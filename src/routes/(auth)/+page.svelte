@@ -10,7 +10,7 @@
 	<h1
 		class="text-center font-mono font-bold text-6xl mb-4 bg-gradient-to-br from-primary-700 to-secondary-300 bg-clip-text text-transparent box-decoration-clone"
 	>
-		PassProtect
+		PassPro
 	</h1>
 
 	{#if form?.success === false}
