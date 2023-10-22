@@ -4,8 +4,6 @@
 	import { userStore } from '../../../../Store';
 	import type { ActionData } from './$types';
 
-	import Button from '../../../../components/Button.svelte';
-	import FormInput from '../../../../components/FormInput.svelte';
 
 	export let form: ActionData;
 	const { transition } = setupViewTransition();
@@ -33,11 +31,11 @@
 	>
 		<!-- for passing along user_id ..? -->
 		<input class='hidden' name='user_id' value={$userStore.user_id}>
-		<FormInput name='companyname' type='text' placeholder='Company Name' />
-		<FormInput name='url' type='text' placeholder='Website URL' />
-		<FormInput name='username' type='text' placeholder='Username' />
-		<FormInput name='password' type='password' placeholder='Password' />
-		<Button label='Add Account' type='submit'/>
+		<input class='inputForm mb-2' name= 'companyname' type='text' placeholder="Company Name">
+		<input class='inputForm mb-2' name= 'url' type='text' placeholder="Website URL">
+		<input class='inputForm mb-2' name= 'username' type='text' placeholder="Username">
+		<input class='inputForm mb-4' name= 'password' type='password' placeholder="Password">
+		<button class='btn' type='submit'>Add Account</button>
 	</form>
 	</div>
 </div>

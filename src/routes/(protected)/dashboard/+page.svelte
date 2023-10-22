@@ -44,8 +44,8 @@
 </script>
 
 <div class="flex flex-col justify-center items-center mb-6">
-	<h1 class="text-2xl my-4">Welcome, {data.userInfo.username}</h1>
-  <a href="/dashboard/createAccount" class="viewLink variant-soft-primary hover:variant-soft-secondary px-36 py-2 rounded-md text-primary-500" use:transition={'viewLink'}>Create Account</a>
+	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
+	<a class='btn' href='/dashboard/createAccount'>Create Account</a>
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}

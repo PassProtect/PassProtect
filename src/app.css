@@ -20,3 +20,12 @@ body {
 	border: 2;
 	border-color: chartreuse;
 }
+
+@layer components {
+	.btn {
+		@apply text-center rounded-md w-full max-w-lg mx-auto border-2 border-secondary-800 hover:border-tertiary-500 hover:bg-primary-500/40
+	}
+	.inputForm {
+		@apply input w-full max-w-lg mx-auto
+	}
+}

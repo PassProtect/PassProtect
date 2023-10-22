@@ -2,8 +2,6 @@
 	import { enhance } from '$app/forms';
 	import type { ActionData } from './$types';
 
-	import FormInput from '../../components/FormInput.svelte';
-	import Button from '../../components/Button.svelte';
 
 	export let form: ActionData;
 </script>
@@ -21,20 +19,17 @@
 	<form
 		method="POST"
 		action="/?/login"
-		class="w-full text-center flex flex-col gap-2 px-12 pt-12 pb-2"
+		class="w-full flex flex-col gap-2 px-12 pt-12 pb-2"
 		use:enhance
 	>
-		<FormInput name="username" type="text" placeholder="username"/>
+		<input class='inputForm' type='text' placeholder="username" name="username">
+		<input class='inputForm mb-4' type='password' placeholder="password" name="password">
 
-		<FormInput name="password" type="password" placeholder="password"/>
-
-		<Button type='submit' label='Login'/>
-
-		<Button label='Sign Up' href='/createUser'/>
+		<button class='btn' type='submit'>Login</button>
+		<a class='btn' href='/createUser'>Sign Up</a>
 	</form>
 
 	<form method="POST" action="/?/Preston">
-		<Button type='submit' label='BYBASS THIS BS'></Button>
+		<button class='btn' type='submit'>BYPASS THIS BS</button>
 	</form>
-	<button type="button" class="btn variant-filled">Button</button>
 </div>
