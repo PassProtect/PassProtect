@@ -4,16 +4,16 @@
 	import { userStore } from '../../../../Store';
 	import type { ActionData } from './$types';
 
-	import Button from '../../../../components/Button.svelte';
-	import FormInput from '../../../../components/FormInput.svelte';
 
 	export let form: ActionData;
 	const { transition } = setupViewTransition();
 
 </script>
 
-<div data-theme="skeleton" class="viewLink variant-soft-secondary w-full max-w-lg mx-auto border-2 border-primary-500 rounded-xl p-8 px-24 mt-[15%] text-center text-xl">
-	<h1 class="my-2 text-4xl pb-8">Add New Account</h1>
+<div class="viewLink w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl mt-32 text-center text-xl bg-primary-300/10">
+	<div class="flex justify-end p-2 pr-4 text-red-600"><a href='/dashboard' class='hover:text-red-300'>X</a></div>
+	<div class="pb-8 px-24">
+	<h1 class="text-5xl pb-2 text-center mb-4 bg-gradient-to-br from-primary-500 to-secondary-300 bg-clip-text text-transparent box-decoration-clone">New Account</h1>
 	{#if (form?.success)}
 		<h1 class="text-2xl text-center py-4 text-success-600">Account Created</h1>
 	{/if}
@@ -31,11 +31,12 @@
 	>
 		<!-- for passing along user_id ..? -->
 		<input class='hidden' name='user_id' value={$userStore.user_id}>
-		<FormInput name='companyname' placeholder='Company Name' />
-		<FormInput name='url' placeholder='Website URL' />
-		<FormInput name='username' placeholder='Username' />
-		<FormInput name='password' placeholder='Password' />
-		<Button label='Add Account' type='submit'/>
+		<input class='inputForm mb-2' name= 'companyname' type='text' placeholder="Company Name">
+		<input class='inputForm mb-2' name= 'url' type='text' placeholder="Website URL">
+		<input class='inputForm mb-2' name= 'username' type='text' placeholder="Username">
+		<input class='inputForm mb-4' name= 'password' type='password' placeholder="Password">
+		<button class='btn' type='submit'>Add Account</button>
 	</form>
+	</div>
 </div>
 

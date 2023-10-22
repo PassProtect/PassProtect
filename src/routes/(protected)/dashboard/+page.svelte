@@ -44,12 +44,12 @@
 </script>
 
 <div class="flex flex-col justify-center items-center mb-6">
-	<h1 class="text-2xl my-4 text-secondary-600">Welcome, {data.userInfo.username}</h1>
-  <a href="/dashboard/createAccount" class="viewLink variant-soft-primary hover:variant-soft-secondary px-36 py-2 rounded-md text-primary-500" use:transition={'viewLink'}>Create Account</a>
+	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
+	<a class='btn w-32' href='/dashboard/createAccount'>Create Account</a>
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} data-theme="skeleton" class="viewLink variant-ghost-secondary px-4 py-16 hover:variant-ghost-success text-center rounded-lg">
+		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="viewLink variant-ghost-primary px-4 py-16 dark:hover:variant-ghost-tertiary text-center rounded-lg">
 			<h5
 				class="text-2xl font-semibold text-primary-500"
 			>

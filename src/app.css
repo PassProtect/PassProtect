@@ -15,96 +15,29 @@ body {
 	background-size: cover;
 }
 
-:root [data-theme='skeleton'] {
-		--theme-font-color-base: var(--color-surface-800);
-		--theme-font-color-dark: var(--color-surface-50);
-		--theme-rounded-base: 9999px;
-		--theme-rounded-container: 8px;
-		--theme-border-base: 2px;
-		/* // =~= Theme On-X Colors =~= */
-		--on-primary: 0 0 0;
-		--on-secondary: 255 255 255;
-		--on-tertiary: 0 0 0;
-		--on-success: 0 0 0;
-		--on-warning: 219 191 107;
-		--on-error: 255 255 255;
-		--on-surface: var(--color-surface-100);
-		/* // =~= Theme Colors  =~= */
-		/* primary | #417cb4  */
-		--color-primary-50: 227 235 244;
-		--color-primary-100: 217 229 240;
-		--color-primary-200: 208 222 236;
-		--color-primary-300: 179 203 225;
-		--color-primary-400: 122 163 203;
-		--color-primary-500: 65 124 180;
-		--color-primary-600: 59 112 162;
-		--color-primary-700: 49 93 135;
-		--color-primary-800: 39 74 108;
-		--color-primary-900: 32 61 88;
-		/* secondary | #69a0d3  */
-		--color-secondary-50: 233 241 248;
-		--color-secondary-100: 225 236 246;
-		--color-secondary-200: 218 231 244;
-		--color-secondary-300: 195 217 237;
-		--color-secondary-400: 150 189 224;
-		--color-secondary-500: 105 160 211;
-		--color-secondary-600: 95 144 190;
-		--color-secondary-700: 79 120 158;
-		--color-secondary-800: 63 96 127;
-		--color-secondary-900: 51 78 103;
-		/* tertiary | #a3d3ff  */
-		--color-tertiary-50: 241 248 255;
-		--color-tertiary-100: 237 246 255;
-		--color-tertiary-200: 232 244 255;
-		--color-tertiary-300: 218 237 255;
-		--color-tertiary-400: 191 224 255;
-		--color-tertiary-500: 163 211 255;
-		--color-tertiary-600: 147 190 230;
-		--color-tertiary-700: 122 158 191;
-		--color-tertiary-800: 98 127 153;
-		--color-tertiary-900: 80 103 125;
-		/* success | #90b658  */
-		--color-success-50: 238 244 230;
-		--color-success-100: 233 240 222;
-		--color-success-200: 227 237 213;
-		--color-success-300: 211 226 188;
-		--color-success-400: 177 204 138;
-		--color-success-500: 144 182 88;
-		--color-success-600: 130 164 79;
-		--color-success-700: 108 137 66;
-		--color-success-800: 86 109 53;
-		--color-success-900: 71 89 43;
-		/* warning | #dbbf6b  */
-		--color-warning-50: 250 245 233;
-		--color-warning-100: 248 242 225;
-		--color-warning-200: 246 239 218;
-		--color-warning-300: 241 229 196;
-		--color-warning-400: 230 210 151;
-		--color-warning-500: 219 191 107;
-		--color-warning-600: 197 172 96;
-		--color-warning-700: 164 143 80;
-		--color-warning-800: 131 115 64;
-		--color-warning-900: 107 94 52;
-		/* error | #db6666  */
-		--color-error-50: 250 232 232;
-		--color-error-100: 248 224 224;
-		--color-error-200: 246 217 217;
-		--color-error-300: 241 194 194;
-		--color-error-400: 230 148 148;
-		--color-error-500: 219 102 102;
-		--color-error-600: 197 92 92;
-		--color-error-700: 164 77 77;
-		--color-error-800: 131 61 61;
-		--color-error-900: 107 50 50;
-		/* surface | #768bcb  */
-		--color-surface-50: 234 238 247;
-		--color-surface-100: 228 232 245;
-		--color-surface-200: 221 226 242;
-		--color-surface-300: 200 209 234;
-		--color-surface-400: 159 174 219;
-		--color-surface-500: 118 139 203;
-		--color-surface-600: 106 125 183;
-		--color-surface-700: 89 104 152;
-		--color-surface-800: 71 83 122;
-		--color-surface-900: 58 68 99;
+.inputBox {
+	background-color: rgba(var(--color-secondary-300));
+	border: 2;
+	border-color: chartreuse;
+}
+
+@layer components {
+	.btn {
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a {
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-error {
+		@apply text-center variant-soft-error hover:variant-filled-error rounded-md w-full py-2 max-w-lg mx-auto border-2 border-error-500
+	}
+	.inputForm {
+		@apply input w-full max-w-lg mx-auto
+	}
 }

@@ -9,17 +9,17 @@
 
 	setupViewTransition();
 
-	let curTheme = 'rocket';
-	const setTheme = (theme: string) => {
-		if (browser) {
-			const bodyElement = document.body;
-			bodyElement.setAttribute('data-theme', theme);
-		}
-	};
+	// let curTheme = 'rocket';
+	// const setTheme = (theme: string) => {
+	// 	if (browser) {
+	// 		const bodyElement = document.body;
+	// 		bodyElement.setAttribute('data-theme', theme);
+	// 	}
+	// };
 
-	$: {
-		setTheme(curTheme);
-	}
+	// $: {
+	// 	setTheme(curTheme);
+	// }
 
 	onNavigate(async (navigation) => {
 		if (!document.startViewTransition) return;
@@ -34,18 +34,22 @@
 </script>
 
 {#if $page.data.user}
-<nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right sticky top-0 px-5 py-4 flex justify-between">
-	<div class="text-3xl font-bold my-auto text-primary-500">PassProtect</div>
+<nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right  top-0 px-5 py-4 flex justify-between">
+	<div class="text-3xl font-bold my-auto text-primary-500">PassPro</div>
 	<div>
 		<div class="flex flex-row items-center justify-between p-2 gap-x-4">
-			<select class="select text-sm font-light rounded-md pl-4 pr-10" bind:value={curTheme}>
+			<!-- <select class="select text-sm font-light rounded-md pl-4 pr-10" bind:value={curTheme}>
 				<option value="rocket" selected>Rocket🚀</option>
 				<option value="wintry">Wintry🥶</option>
 				<option value="skeleton">SKELETON💀</option>
 				<option value="crimson">Crimson🔴</option>
 				<option value="gold-nouveau">Luxury🌟</option>
-				<option value="customThemeOne">Custom</option>
-			</select>
+				<option value="seafoam">Seafoam</option>
+				<option value="customThemeOne">CustomOne</option>
+				<option value="customThemeTwo">CustomTwo</option>
+				<option value="customThemeThree">CustomThree</option>
+				
+			</select> -->
 			<div>
 				<LightSwitch />
 			</div>
