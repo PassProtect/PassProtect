@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="viewLink w-full max-w-lg mx-auto border-2 rounded-xl mt-32 text-center text-xl overflow-x-auto bg-primary-300/10"
+	class="viewLink w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl mt-32 text-center text-xl overflow-x-auto bg-primary-300/10"
 >
 	<div class="flex justify-end p-2 pr-4 text-red-600"><a href='/dashboard' class='hover:text-red-300'>X</a></div>
 	<div class="pb-8 px-24">
@@ -53,7 +53,7 @@
 		</div>
 		
 	</div>
-	<button class='btn mt-4' on:click={updateEditMode}>Edit Account</button>
+	<button class='btn text-xl my-8' on:click={updateEditMode}>Edit Account</button>
 	<form
 		method="post"
 		action="/dashboard/[slug]?/delete"
@@ -64,7 +64,7 @@
 	>
 		<input class="hidden" name="companyname" value={companyname} />
 		<input class="hidden" name="user_id" value={user_id} />
-		<button type="submit" class="btn variant-soft-error hover:variant-filled-error px-6 py-2 rounded-md text-error-800 w-full mx-auto border-2 border-error-500 mt-2">Delete Account</button>
+		<button type="submit" class="btn-error">Delete Account</button>
 	</form>
 	</div>
 </div>

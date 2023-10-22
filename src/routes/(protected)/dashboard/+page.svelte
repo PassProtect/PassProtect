@@ -45,7 +45,7 @@
 
 <div class="flex flex-col justify-center items-center mb-6">
 	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
-	<a class='btn' href='/dashboard/createAccount'>Create Account</a>
+	<a class='btn w-32' href='/dashboard/createAccount'>Create Account</a>
 </div>
 <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}

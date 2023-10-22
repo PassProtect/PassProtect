@@ -23,7 +23,19 @@ body {
 
 @layer components {
 	.btn {
-		@apply text-center rounded-md w-full max-w-lg mx-auto border-2 border-secondary-800 hover:border-tertiary-500 hover:bg-primary-500/40
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a {
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-error {
+		@apply text-center variant-soft-error hover:variant-filled-error rounded-md w-full py-2 max-w-lg mx-auto border-2 border-error-500
 	}
 	.inputForm {
 		@apply input w-full max-w-lg mx-auto

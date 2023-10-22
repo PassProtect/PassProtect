@@ -10,10 +10,10 @@
 
 </script>
 
-<div class="viewLink w-full max-w-lg mx-auto border-2 rounded-xl mt-32 text-center text-xl">
-	<div class="flex justify-end p-2 text-red-600"><a href='/dashboard'>X</a></div>
-	<div class=" p-8 px-24">
-	<h1 class="my-2 text-4xl pb-8">Add New Account</h1>
+<div class="viewLink w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl mt-32 text-center text-xl bg-primary-300/10">
+	<div class="flex justify-end p-2 pr-4 text-red-600"><a href='/dashboard' class='hover:text-red-300'>X</a></div>
+	<div class="pb-8 px-24">
+	<h1 class="text-5xl pb-2 text-center mb-4 bg-gradient-to-br from-primary-500 to-secondary-300 bg-clip-text text-transparent box-decoration-clone">New Account</h1>
 	{#if (form?.success)}
 		<h1 class="text-2xl text-center py-4 text-success-600">Account Created</h1>
 	{/if}

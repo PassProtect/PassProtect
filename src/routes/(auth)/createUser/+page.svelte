@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex h-screen flex-col justify-center items-center">
-	<h1 class="text-center font-mono text-4xl mb-4">Sign Up</h1>
+	<h1 class="text-5xl pb-2 text-center mb-4 bg-gradient-to-br from-primary-500 to-secondary-300 bg-clip-text text-transparent box-decoration-clone">Sign Up</h1>
 
 	{#if (form?.failed)}
 	<h1>You messed up signing up somehow. Nice.</h1>
@@ -45,13 +45,13 @@
 		</label>
 		<button
 			type="submit"
-			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
+			class="btn mt-4"
 		>
 			Create Account
 		</button>
 		<a
 			href="/"
-			class="viewLink variant-soft-secondary hover:variant-filled-secondary px-36 py-2 rounded-md w-full max-w-lg mx-auto border-2 border-secondary-500"
+			class="btn-a-empty w-32"
 		>
 			Back to Login
 		</a>
