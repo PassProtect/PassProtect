@@ -26,10 +26,16 @@
 		<input class='inputForm mb-4' type='password' placeholder="password" name="password">
 
 		<button class='btn' type='submit'>Login</button>
-		<a class='btn' href='/createUser'>Sign Up</a>
+		<a class='signup btn' href='/createUser'>Sign Up</a>
 	</form>
 
 	<form method="POST" action="/?/Preston">
 		<button class='btn' type='submit'>BYPASS THIS BS</button>
 	</form>
 </div>
+
+<style>
+	.signup {
+		view-transition-name: signup;
+	}
+</style>

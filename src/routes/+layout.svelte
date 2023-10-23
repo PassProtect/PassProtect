@@ -5,9 +5,7 @@
 	import { browser } from '$app/environment';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { enhance } from '$app/forms';
-	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	setupViewTransition();
 
 	// let curTheme = 'rocket';
 	// const setTheme = (theme: string) => {
@@ -53,8 +51,8 @@
 			<div>
 				<LightSwitch />
 			</div>
-		<a href="/dashboard" class="align-middle text-primary-500 font-bold ">Dashboard</a>
-		<form action="/api/logout" method="POST" class="px-2 align-middle text-primary-500 font-bold" use:enhance>
+		<a href="/dashboard" class="align-middle text-primary-500 hover:text-primary-300 font-bold ">Dashboard</a>
+		<form action="/api/logout" method="POST" class="px-2 align-middle text-primary-500 hover:text-primary-300 font-bold" use:enhance>
 			<button type="submit">LogOut</button>
 		</form>	</div>
 </nav>

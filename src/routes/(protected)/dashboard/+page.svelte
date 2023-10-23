@@ -1,9 +1,7 @@
 <script>
 	import accountStore, { userStore } from '../../../Store.js';
-	import { setupViewTransition } from 'sveltekit-view-transition';
 
 	export let data;
-	const { transition } = setupViewTransition();
 
 	/**
 	 * @param {{ iv: any; password: any; companyname: any; url: any; username: any; }} account
@@ -42,14 +40,15 @@
 			}
 		})
 </script>
-
+<button class='fitButton btn w-fit'>MOVE ME</button>
+<button class='slug btn w-fit'>SLUG TEST</button>
 <div class="flex flex-col justify-center items-center mb-6">
 	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
-	<a class='btn w-32' href='/dashboard/createAccount'>Create Account</a>
+	<a class='createAccount btn w-fit px-2' href='/dashboard/createAccount'>Create Account</a>
 </div>
-<div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
 	{#each data.userInfo.rows as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="viewLink variant-ghost-primary px-4 py-16 dark:hover:variant-ghost-tertiary text-center rounded-lg">
+		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="variant-ghost-primary px-4 py-16 dark:hover:variant-ghost-tertiary text-center rounded-lg">
 			<h5
 				class="text-2xl font-semibold text-primary-500"
 			>
@@ -58,3 +57,17 @@
 		</a>
 	{/each}
 </div>
+
+<style>
+.fitButton {
+	background-color: black;
+	view-transition-name: secondpage;
+}	
+
+.createAccount {
+	view-transition-name: active-page;
+}
+.slug {
+	view-transition-name: slug;
+}
+</style>

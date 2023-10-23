@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="viewLink w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl p-8 px-24 mt-32 text-center text-xl bg-primary-300/10"
+	class="w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl p-8 px-24 mt-32 text-center text-xl bg-primary-300/10"
 >
 
 	<h1 class="text-6xl pb-2 text-center mb-4 bg-gradient-to-br from-primary-500 to-secondary-300 bg-clip-text text-transparent box-decoration-clone">{companyname}</h1>
