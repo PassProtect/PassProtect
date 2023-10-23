@@ -5,6 +5,9 @@ import { pool } from './db';
 
 export const actions = {
 	login: async ({ cookies, request }) => {
+		// delete all expired sessions from database (temporary solution until more proper method is implemented)
+		await pool.query(`DELETE FROM sessions WHERE expires_at < now();`)
+
 		// get form data
 		const data = await request.formData();
 		const username = String(data.get('username'));
