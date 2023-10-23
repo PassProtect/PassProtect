@@ -1,12 +1,8 @@
 <script lang="ts">
 	import accountStore, { userStore } from '../../../../Store.js';
-	import { setupViewTransition } from 'sveltekit-view-transition';
-	import type { PageData } from './$types.js';
-	import { scale } from 'svelte/transition';
-	import AccountInfo from '../../../../components/slug/AccountInfo.svelte';
 	import EditInfo from '../../../../components/slug/EditInfo.svelte';
+	import AccountInfo from '../../../../components/slug/AccountInfo.svelte';
 
-	const { transition } = setupViewTransition();
 
 	$: companyname = $accountStore.companyname;
 	$: url = $accountStore.url;
@@ -16,10 +12,9 @@
 	$: editMode = false;
 	$: showPassword = false;
 </script>
-
+<button class='fitButton btn w-fit flex'>MOVE ME</button>
+<button class='slug btn w-fit flex'>SLUG TEST</button>
 <div
-	in:scale
-	out:scale
 	class="w-full h-full flex flex-col justify-center items-center overflow-hidden"
 >
 	{#if !editMode}
@@ -50,3 +45,13 @@
 		/>
 	{/if}
 </div>
+
+<style>
+.fitButton {
+	background-color: black;
+	view-transition-name: secondpage;
+}	
+.slug {
+	view-transition-name: slug;
+}
+</style>

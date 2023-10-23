@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="viewLink w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl mt-32 text-center text-xl overflow-x-auto bg-primary-300/10"
+	class="w-full max-w-lg mx-auto border-2 border-tertiary-800 rounded-xl mt-32 text-center text-xl overflow-x-auto bg-primary-300/10"
 >
 	<div class="flex justify-end p-2 pr-4 text-red-600"><a href='/dashboard' class='hover:text-red-300'>X</a></div>
 	<div class="pb-8 px-24">
