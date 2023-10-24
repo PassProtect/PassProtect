@@ -1,6 +1,5 @@
 <script>
 	import accountStore, { userStore } from '../../../Store.js';
-
 	export let data;
 
 	/**
