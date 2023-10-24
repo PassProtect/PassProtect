@@ -49,7 +49,7 @@
 				
 			</select> -->
 			<div>
-				<LightSwitch />
+				<!-- <LightSwitch /> -->
 			</div>
 		<a href="/dashboard" class="align-middle text-primary-500 hover:text-primary-300 font-bold ">Dashboard</a>
 		<form action="/api/logout" method="POST" class="px-2 align-middle text-primary-500 hover:text-primary-300 font-bold" use:enhance>
