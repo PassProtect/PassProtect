@@ -15,6 +15,29 @@ body {
 	background-size: cover;
 }
 
-#viewLink::before {
-	view-timeline-name: active-page;
+.inputBox {
+	background-color: rgba(var(--color-secondary-300));
+	border: 2;
+	border-color: chartreuse;
+}
+
+@layer components {
+	.btn {
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a {
+		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-a-empty {
+		@apply text-center hover:bg-secondary-500/50 rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500
+	}
+	.btn-error {
+		@apply text-center variant-soft-error hover:variant-filled-error rounded-md w-full py-2 max-w-lg mx-auto border-2 border-error-500
+	}
+	.inputForm {
+		@apply input w-full max-w-lg mx-auto
+	}
 }
