@@ -70,7 +70,7 @@ export const actions = {
 		return fail(400, { success: false });
 	},
 	Docker: async () => {
-		throw redirect(307, '/docker')
+		throw redirect(302, '/docker')
 		return {success:true}
 	}
 } satisfies Actions;
