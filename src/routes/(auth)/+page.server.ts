@@ -1,15 +1,17 @@
 import { fail, redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { pool } from './db';
 
-
+export const load: PageServerLoad = async({ request }) => {
+	console.log('REQUEST', request);
+}
 export const actions = {
 	login: async ({ cookies, request }) => {
-		// delete all expired sessions from database (temporary solution until more proper method is implemented)
-		await pool.query(`DELETE FROM sessions WHERE expires_at < now();`)
-
 		// get form data
 		const data = await request.formData();
+		// delete all expired sessions from database (temporary solution until more proper method is implemented)
+		await pool.query(`DELETE FROM sessions WHERE expires_at < now();`)
+		
 		const username = String(data.get('username'));
 		const password = String(data.get('password'));
 

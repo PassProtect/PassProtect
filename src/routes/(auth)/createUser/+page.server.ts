@@ -26,8 +26,7 @@ export const actions = {
 
 		// if an account has been successfully made, redirect to login
 		if (createResponse.rowCount === 1) {
-			console.log('account successfully created');
-			throw redirect(307, '/');
+			return {success:true}
 		} else {
 			return fail(400, { failed: true });
 		}
