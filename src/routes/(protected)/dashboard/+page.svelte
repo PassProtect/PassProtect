@@ -11,7 +11,7 @@
 		const info = {
 			iv: account.iv,
 			password: account.password
-		}
+		};
 		//decrypt the password
 		const response = await fetch('/api/dashboard', {
 			method: 'POST',
@@ -28,28 +28,30 @@
 				url: account.url,
 				username: account.username,
 				password: pass.plaintext,
-				iv: '',
+				iv: ''
 			};
 		});
 	}
 	//add the current user_id to the store to access at create account
 	userStore.update(() => {
-			return {
-				user_id: data.userInfo.user_id
-			}
-		})
+		return {
+			user_id: data.userInfo.user_id
+		};
+	});
 </script>
 
 <div class="flex flex-col justify-center items-center mb-6">
 	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
-	<a class='createAccount btn w-fit px-2' href='/dashboard/createAccount'>Create Account</a>
+	<a class="createAccount btn w-fit px-2" href="/dashboard/createAccount">Create Account</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4" >
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-4">
 	{#each data.userInfo.rows as account}
-		<a href="/dashboard/{account.companyname}" on:click={updateStore(account)} class="variant-ghost-primary px-4 py-16 dark:hover:variant-ghost-tertiary text-center rounded-lg">
-			<h5
-				class="text-2xl font-semibold text-primary-500"
-			>
+		<a
+			href="/dashboard/{account.companyname}"
+			on:click={updateStore(account)}
+			class="variant-ghost-primary px-4 py-16 dark:hover:variant-ghost-tertiary text-center rounded-lg"
+		>
+			<h5 class="text-2xl font-semibold text-primary-500">
 				{account.companyname}
 			</h5>
 		</a>
