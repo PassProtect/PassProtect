@@ -1,6 +1,6 @@
 import type { Actions } from './$types';
 import { pool } from '../db';
-import { redirect, fail } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 
 export const actions = {
 	default: async ({ request }) => {

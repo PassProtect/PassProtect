@@ -17,7 +17,7 @@
 	<Alert title='Account Created' message='Please Log In'/>
 	{/if}
 	{#if (form?.failed)}
-	<h1>You messed up signing up somehow. Nice.</h1>
+	<h1>Signup Failed. Please try again.</h1>
 	{/if}
 	<form 
 		method="POST" 

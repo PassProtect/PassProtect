@@ -1,10 +1,10 @@
-import { fail, type Actions } from '@sveltejs/kit';
+import { fail, type Actions, redirect } from '@sveltejs/kit';
 import { pool } from '../../../(auth)/db';
 import { encrypt } from '../../../../components/functions/encryption';
-import type { PageServerLoad } from './$types.js';
+import type { PageLoad } from '../$types';
 
 //runs the auth check again before fetching any data
-export const load: PageServerLoad = async ({ parent }) => {
+export const load: PageLoad = async ({ parent }) => {
 		await parent();
 }
 
@@ -19,9 +19,7 @@ export const actions = {
 		const queryValues = [companyname, url, username, encryptedPass.data, encryptedPass.iv, user_id];
 		const response = await pool.query(queryString, queryValues);
 		if (response.rowCount) {
-			return {
-				success: true
-			};
+			throw redirect(303, '/dashboard')
 		} else {
 			return fail(400, {
 				success: false

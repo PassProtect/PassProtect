@@ -40,8 +40,7 @@
 			}
 		})
 </script>
-<button class='fitButton btn w-fit'>MOVE ME</button>
-<button class='slug btn w-fit'>SLUG TEST</button>
+
 <div class="flex flex-col justify-center items-center mb-6">
 	<h1 class="text-2xl my-4">Welcome {data.userInfo.username}!</h1>
 	<a class='createAccount btn w-fit px-2' href='/dashboard/createAccount'>Create Account</a>
@@ -59,15 +58,7 @@
 </div>
 
 <style>
-.fitButton {
-	background-color: black;
-	view-transition-name: secondpage;
-}	
-
 .createAccount {
 	view-transition-name: active-page;
-}
-.slug {
-	view-transition-name: slug;
 }
 </style>

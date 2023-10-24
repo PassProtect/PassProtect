@@ -12,8 +12,7 @@
 	$: editMode = false;
 	$: showPassword = false;
 </script>
-<button class='fitButton btn w-fit flex'>MOVE ME</button>
-<button class='slug btn w-fit flex'>SLUG TEST</button>
+
 <div
 	class="w-full h-full flex flex-col justify-center items-center overflow-hidden"
 >
@@ -46,12 +45,3 @@
 	{/if}
 </div>
 
-<style>
-.fitButton {
-	background-color: black;
-	view-transition-name: secondpage;
-}	
-.slug {
-	view-transition-name: slug;
-}
-</style>

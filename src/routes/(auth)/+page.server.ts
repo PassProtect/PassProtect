@@ -1,10 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
-import type { Actions, PageServerLoad } from './$types';
+import type { Actions } from './$types';
 import { pool } from './db';
 
-export const load: PageServerLoad = async({ request }) => {
-	console.log('REQUEST', request);
-}
 export const actions = {
 	login: async ({ cookies, request }) => {
 		// get form data
