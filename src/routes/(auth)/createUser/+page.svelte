@@ -8,6 +8,7 @@
 	if (form?.success) {
 		goto('/');
 	}
+
 </script>
 
 <div

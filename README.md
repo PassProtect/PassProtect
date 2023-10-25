@@ -21,7 +21,7 @@ Our goal for this product was to create a secure, centralized location for all o
 
 ## Features
 - Encryped account information to keep your various logins secure
-- Intuitive design for easy access to all account
+- Intuitive design for easy access to all accounts
 
 # Contributing
 We hope you enjoy using our product and find it useful! 

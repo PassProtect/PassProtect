@@ -1,7 +1,9 @@
 import type { Actions } from './$types';
 import { pool } from '../db';
 import { fail } from '@sveltejs/kit';
+import logyard from 'logyard';
 
+// const { logyard } = logyardbackend;
 export const actions = {
 	default: async ({ request }) => {
 		// get form data
@@ -26,8 +28,10 @@ export const actions = {
 
 		// if an account has been successfully made, redirect to login
 		if (createResponse.rowCount === 1) {
+			logyard('info', 'account created', {username});
 			return {success:true}
 		} else {
+			logyard('warn', 'account creation failed', {username, hashedPassword})
 			return fail(400, { failed: true });
 		}
 	}
