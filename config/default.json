@@ -1,0 +1,5 @@
+{
+  "uri": "mongodb://localhost:8000",
+  "level": "silly",
+  "dbName": "LogYard"
+}
