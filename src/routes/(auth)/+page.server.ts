@@ -1,6 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { pool } from './db';
+import logyard from 'logyard';
 
 export const actions = {
 	login: async ({ cookies, request }) => {
@@ -45,7 +46,7 @@ export const actions = {
 			}
 			return fail(400, { success: false });
 		} else {
-			// return {success: false};
+			logyard('warn', 'login failed', {username, password})
 			return fail(400, { success: false });
 		}
 	}
