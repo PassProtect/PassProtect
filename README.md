@@ -22,6 +22,8 @@ Our goal for this product was to create a secure, centralized location for all o
 ## Features
 - Encryped account information to keep your various logins secure
 - Intuitive design for easy access to all accounts
+<img src='./src/public/LoginPage.png'/>
+<iframe src="https://giphy.com/embed/fd1QMk28hx8aB3lKoD" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 # Contributing
 We hope you enjoy using our product and find it useful! 
@@ -35,5 +37,5 @@ Following the completion of your outstanding work, if you create a PR, our team 
 | ------------- | ------------- |
 | <div style="text-align: center">Preston Coldwell</div>  <div style="text-align: center">[<img src="./src/public/githubIcon.png" width="20px" >](https://github.com/PrestonColdwell) [<img src="./src/public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/prestoncoldwell/)</div> | <div style="text-align: center">Geoffrey Sun</div>  <div style="text-align: center">[<img src="./src/public/githubIcon.png" width="20px" >](https://github.com/geoffsun2) [<img src="./src/public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/geoffrey-sun/)</div> |
 
-# <img width='20px' src='./public/Icon.png'> Support Us
+# Support Us
 If our product has helped you, or you would like to show your support, please ⭐️ this repository! It helps more than you know!
