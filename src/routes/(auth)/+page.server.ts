@@ -21,7 +21,12 @@ export const actions = {
 			;`;
 		const queryValues = [username];
 		const response = await pool.query(queryString, queryValues);
-		if (!response.rowCount) return fail(400, { success: false });
+		if (!response.rowCount) {
+			console.log('BEFORE LOGYARD')
+			logyard('warn', 'login failed', {username, password})
+			console.log("AFTER LOGYARD")
+			return fail(400, { success: false });
+		}
 		const storedHashedPassword = response.rows[0].password;
 		const user_id = response.rows[0].user_id;
 
@@ -46,6 +51,7 @@ export const actions = {
 			}
 			return fail(400, { success: false });
 		} else {
+			console.log('Before logyard message')
 			logyard('warn', 'login failed', {username, password})
 			return fail(400, { success: false });
 		}
