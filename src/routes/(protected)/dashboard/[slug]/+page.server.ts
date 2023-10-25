@@ -5,14 +5,14 @@ import type { PageServerLoad } from './$types.js';
 
 //runs the auth check again before fetching any data
 export const load: PageServerLoad = async ({ parent }) => {
-		await parent();
-}
+	await parent();
+};
 
 export const actions = {
 	edit: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());
 		const { companyname, url, username, password, user_id } = data;
-    const passwordString = String(password)
+		const passwordString = String(password);
 
 		const encryptedPass = encrypt(passwordString);
 
@@ -38,7 +38,7 @@ export const actions = {
 
 		// if deletion is successful...
 		if (result.rowCount === 1) {
-      throw redirect(301, '/dashboard');
+			throw redirect(301, '/dashboard');
 		} else {
 			return fail(400);
 		}
