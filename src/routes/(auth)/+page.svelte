@@ -28,13 +28,6 @@
 		<button class='btn' type='submit'>Login</button>
 		<a class='signup btn' href='/createUser'>Sign Up</a>
 	</form>
-
-	<form method="POST" action="/?/Preston">
-		<button class='btn' type='submit'>BYPASS THIS BS</button>
-	</form>
-	<form method='POST' action='/?/Docker'>
-		<button class='btn' type='submit'>docker</button>
-	</form>
 </div>
 
 <style>

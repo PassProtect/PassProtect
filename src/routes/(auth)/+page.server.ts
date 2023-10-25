@@ -48,29 +48,5 @@ export const actions = {
 			// return {success: false};
 			return fail(400, { success: false });
 		}
-	},
-	Preston: async ({ cookies }) => {
-		const uuid = crypto.randomUUID();
-		const user_id = 42;
-		const username = 'PristonColdwell';
-		const sessionQuery = `INSERT INTO sessions (session_id, user_id, username) VALUES ($1, $2, $3) ON CONFLICT (user_id) DO NOTHING;`;
-		const sessionValues = [uuid, user_id, username];
-		const response = await pool.query(sessionQuery, sessionValues);
-		//if the session is created, set a cookie and redirect
-		if (response.rowCount === 1) {
-			cookies.set('session', `${uuid}`, {
-				path: '/',
-				httpOnly: true,
-				sameSite: 'strict',
-				// secure: process.env.VITE_ENV === 'production',
-				maxAge: 60 * 15
-			});
-			throw redirect(307, '/dashboard');
-		}
-		return fail(400, { success: false });
-	},
-	Docker: async () => {
-		throw redirect(302, '/docker')
-		return {success:true}
 	}
 } satisfies Actions;
