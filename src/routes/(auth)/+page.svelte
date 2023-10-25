@@ -2,11 +2,12 @@
 	import { enhance } from '$app/forms';
 	import type { ActionData } from './$types';
 
-
 	export let form: ActionData;
 </script>
 
-<div class="flex h-screen flex-col justify-center items-center">
+
+<div class="flex h-screen flex-col items-center">
+	<img class='h-48 w-48' src='/images/Pass.png' alt="logo">
 	<h1
 		class="text-center font-mono font-bold text-6xl mb-4 bg-gradient-to-br from-primary-700 to-secondary-300 bg-clip-text text-transparent box-decoration-clone"
 	>
