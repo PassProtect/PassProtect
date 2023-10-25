@@ -25,10 +25,10 @@
 	>
 		<!-- for passing along user_id ..? -->
 		<input class='hidden' name='user_id' value={$userStore.user_id}>
-		<input class='inputForm mb-2' name= 'companyname' type='text' placeholder="Company Name">
-		<input class='inputForm mb-2' name= 'url' type='text' placeholder="Website URL">
-		<input class='inputForm mb-2' name= 'username' type='text' placeholder="Username">
-		<input class='inputForm mb-4' name= 'password' type='password' placeholder="Password">
+		<input class='inputForm mb-2' name= 'companyname' type='text' placeholder="Company Name" required>
+		<input class='inputForm mb-2' name= 'url' type='url' placeholder="Website URL">
+		<input class='inputForm mb-2' name= 'username' type='text' placeholder="Username" required>
+		<input class='inputForm mb-4' name= 'password' type='password' placeholder="Password" required>
 		<button class='createAccount btn' type='submit'>Add Account</button>
 	</form>
 	</div>
