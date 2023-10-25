@@ -32,7 +32,11 @@
 
 {#if $page.data.user}
 <nav class="bg-gradient-to-br from-primary-700/30 to-secondary-300/30 grow text-right  top-0 px-5 py-4 flex justify-between">
-	<div class="text-3xl font-bold my-auto text-primary-500">PassPro</div>
+	<div class='flex'>
+		<div class="text-3xl font-bold my-auto text-primary-500">PassPro</div>
+		<img class='mt-1 h-12 w-12' src='/images/Pass.png' alt='logo'>
+	</div>
+	
 	<div>
 		<div class="flex flex-row items-center justify-between p-2 gap-x-4">
 			<select class="select text-sm font-light rounded-md pl-4 pr-10" bind:value={curTheme}>
