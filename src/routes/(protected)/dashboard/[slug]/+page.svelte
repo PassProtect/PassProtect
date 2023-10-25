@@ -3,7 +3,6 @@
 	import EditInfo from '../../../../components/slug/EditInfo.svelte';
 	import AccountInfo from '../../../../components/slug/AccountInfo.svelte';
 
-
 	$: companyname = $accountStore.companyname;
 	$: url = $accountStore.url;
 	$: username = $accountStore.username;
@@ -13,9 +12,7 @@
 	$: showPassword = false;
 </script>
 
-<div
-	class="w-full h-full flex flex-col justify-center items-center overflow-hidden"
->
+<div class="w-full h-full flex flex-col justify-center items-center overflow-hidden">
 	{#if !editMode}
 		<AccountInfo
 			{companyname}
@@ -44,4 +41,3 @@
 		/>
 	{/if}
 </div>
-
