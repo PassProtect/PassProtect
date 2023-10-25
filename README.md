@@ -23,7 +23,7 @@ Our goal for this product was to create a secure, centralized location for all o
 - Encryped account information to keep your various logins secure
 - Intuitive design for easy access to all accounts
 <img src='./src/public/LoginPage.png'/>
-<iframe src="https://giphy.com/embed/fd1QMk28hx8aB3lKoD" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<img src='./src/public/DemoGIF.gif'/>
 
 # Contributing
 We hope you enjoy using our product and find it useful! 
