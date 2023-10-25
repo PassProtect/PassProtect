@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import HiddenEye from '../../public/HiddenEye.svelte';
-	import { goto, invalidateAll, invalidate } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	export let password = 'password';
 	export let companyname = 'company';
 	export let url = 'url';

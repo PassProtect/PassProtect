@@ -5,10 +5,6 @@
   export let title = '';
 </script>
 
-<!-- <div class='alert'>
-  {message}
-</div> -->
-
 <aside class="alert variant-ghost mt-4">
   <!-- Icon -->
   <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="green" class="w-10 h-10">

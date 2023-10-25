@@ -15,12 +15,6 @@ body {
 	background-size: cover;
 }
 
-.inputBox {
-	background-color: rgba(var(--color-secondary-300));
-	border: 2;
-	border-color: chartreuse;
-}
-
 @layer components {
 	.btn {
 		@apply text-center variant-soft-secondary hover:variant-filled-secondary rounded-md w-full py-2 max-w-lg mx-auto border-2 border-secondary-500

@@ -23,7 +23,6 @@
 		action="/dashboard/createAccount"
 		use:enhance
 	>
-		<!-- for passing along user_id ..? -->
 		<input class='hidden' name='user_id' value={$userStore.user_id}>
 		<input class='inputForm mb-2' name= 'companyname' type='text' placeholder="Company Name" required>
 		<input class='inputForm mb-2' name= 'url' type='url' placeholder="Website URL">

@@ -205,8 +205,8 @@ export const customThemeTwo: CustomThemeConfig = {
 
 
 
-export const customThemeThree: CustomThemeConfig = {
-    name: 'customThemeThree',
+export const PassPro: CustomThemeConfig = {
+    name: 'PassPro',
     properties: {
 		// =~= Theme Properties =~=
 		"--theme-font-family-base": `Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'`,

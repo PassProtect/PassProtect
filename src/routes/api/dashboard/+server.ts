@@ -3,7 +3,6 @@ import { pool } from '../../(auth)/db';
 import { decrypt } from '../../../components/functions/encryption';
 
 export const GET: RequestHandler = async ({ locals }) => {
-	// TODO: get user_id somehow
 	const session_id = locals.user.session_id;
 	const userResponse = await pool.query(`SELECT * FROM sessions WHERE session_id = $1`, [
 		session_id
