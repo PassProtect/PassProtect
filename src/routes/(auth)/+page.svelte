@@ -29,6 +29,8 @@
 		<button class='btn' type='submit'>Login</button>
 		<a class='signup btn' href='/createUser'>Sign Up</a>
 	</form>
+
+	<a href='https://github.com/PassProtect/PassProtect' target='_blank' class='btn-a-empty mt-20 w-fit p-2'>GitHub Repo</a>
 </div>
 
 <style>
